@@ -1,0 +1,88 @@
+\doxysubsection{Timer Driver }
+\hypertarget{group___b_s_p___t_i_m_e_r}{}\label{group___b_s_p___t_i_m_e_r}\index{Timer Driver@{Timer Driver}}
+
+
+Timer driver.  
+
+
+\doxysubsubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{group___b_s_p___t_i_m_e_r_gac169c21763f974da04180b674c4ebe77}{BSP\+\_\+timer\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Receive firmware data. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___b_s_p___t_i_m_e_r_ga8f79c162c089228c0f9664792ebc9dc2}{BSP\+\_\+delay}} (uint32\+\_\+t tickX)
+\begin{DoxyCompactList}\small\item\em Receive firmware data. \end{DoxyCompactList}\item 
+uint16\+\_\+t \doxymbox{\hyperlink{group___b_s_p___t_i_m_e_r_gac1f12ffeba3ef35569ef51b38de70dc7}{BSP\+\_\+get\+Tick\+Counter}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Detailed Description}
+Timer driver. 
+
+
+
+\label{group___b_s_p___t_i_m_e_r_doc-func-members}
+\Hypertarget{group___b_s_p___t_i_m_e_r_doc-func-members}
+\doxysubsubsection{Function Documentation}
+\Hypertarget{group___b_s_p___t_i_m_e_r_ga8f79c162c089228c0f9664792ebc9dc2}\index{Timer Driver@{Timer Driver}!BSP\_delay@{BSP\_delay}}
+\index{BSP\_delay@{BSP\_delay}!Timer Driver@{Timer Driver}}
+\doxysubsubsubsection{\texorpdfstring{BSP\_delay()}{BSP\_delay()}}
+{\footnotesize\ttfamily \label{group___b_s_p___t_i_m_e_r_ga8f79c162c089228c0f9664792ebc9dc2} 
+void BSP\+\_\+delay (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{tickX}{}\end{DoxyParamCaption})}
+
+
+
+Receive firmware data. 
+
+Receives firmware packets from the communication interface.
+
+Implements REQ-\/\+FUNC-\/0004
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em buffer} & Pointer to firmware data. \\
+\hline
+\doxymbox{\texttt{in}}  & {\em length} & Number of bytes.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em true} & Reception successful. \\
+\hline
+{\em false} & Reception failed. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{group___b_s_p___t_i_m_e_r_gac1f12ffeba3ef35569ef51b38de70dc7}\index{Timer Driver@{Timer Driver}!BSP\_getTickCounter@{BSP\_getTickCounter}}
+\index{BSP\_getTickCounter@{BSP\_getTickCounter}!Timer Driver@{Timer Driver}}
+\doxysubsubsubsection{\texorpdfstring{BSP\_getTickCounter()}{BSP\_getTickCounter()}}
+{\footnotesize\ttfamily \label{group___b_s_p___t_i_m_e_r_gac1f12ffeba3ef35569ef51b38de70dc7} 
+uint16\+\_\+t BSP\+\_\+get\+Tick\+Counter (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{group___b_s_p___t_i_m_e_r_gac169c21763f974da04180b674c4ebe77}\index{Timer Driver@{Timer Driver}!BSP\_timerInit@{BSP\_timerInit}}
+\index{BSP\_timerInit@{BSP\_timerInit}!Timer Driver@{Timer Driver}}
+\doxysubsubsubsection{\texorpdfstring{BSP\_timerInit()}{BSP\_timerInit()}}
+{\footnotesize\ttfamily \label{group___b_s_p___t_i_m_e_r_gac169c21763f974da04180b674c4ebe77} 
+void BSP\+\_\+timer\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Receive firmware data. 
+
+Receives firmware packets from the communication interface.
+
+Implements REQ-\/\+FUNC-\/0004
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em buffer} & Pointer to firmware data. \\
+\hline
+\doxymbox{\texttt{in}}  & {\em length} & Number of bytes.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em true} & Reception successful. \\
+\hline
+{\em false} & Reception failed. \\
+\hline
+\end{DoxyRetVals}

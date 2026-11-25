@@ -1,0 +1,50 @@
+\doxysection{bsp/\+megas64m1/\+source/\+bsp\+\_\+timer.c File Reference}
+\hypertarget{bsp__timer_8c}{}\label{bsp__timer_8c}\index{bsp/megas64m1/source/bsp\_timer.c@{bsp/megas64m1/source/bsp\_timer.c}}
+{\ttfamily \+\#include "{}bsp\+\_\+timer.\+h"{}}\newline
+{\ttfamily \+\#include "{}bsp.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{bsp__timer_8c_aa7914b8d7fd0bae056b85acb5062676b}{TIMER\+\_\+\+PRESCALER}}~8UL
+\item 
+\+\#define \doxymbox{\hyperlink{bsp__timer_8c_a6df2aff0b3ae02cf824bfad9a740a1ce}{TICK\+\_\+\+HZ}}~1000\+UL
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{bsp__timer_8c_ad39420cdd896dd12c68e36313139d0a5}{ISR}} (TIMER1\+\_\+\+COMPA\+\_\+vect)
+\item 
+void \doxymbox{\hyperlink{group___b_s_p___t_i_m_e_r_ga8f79c162c089228c0f9664792ebc9dc2}{BSP\+\_\+delay}} (uint32\+\_\+t tickX)
+\begin{DoxyCompactList}\small\item\em Receive firmware data. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___b_s_p___t_i_m_e_r_gac169c21763f974da04180b674c4ebe77}{BSP\+\_\+timer\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Receive firmware data. \end{DoxyCompactList}\item 
+uint16\+\_\+t \doxymbox{\hyperlink{group___b_s_p___t_i_m_e_r_gac1f12ffeba3ef35569ef51b38de70dc7}{BSP\+\_\+get\+Tick\+Counter}} (void)
+\end{DoxyCompactItemize}
+
+
+\label{bsp__timer_8c_doc-define-members}
+\Hypertarget{bsp__timer_8c_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{bsp__timer_8c_a6df2aff0b3ae02cf824bfad9a740a1ce}\index{bsp\_timer.c@{bsp\_timer.c}!TICK\_HZ@{TICK\_HZ}}
+\index{TICK\_HZ@{TICK\_HZ}!bsp\_timer.c@{bsp\_timer.c}}
+\doxysubsubsection{\texorpdfstring{TICK\_HZ}{TICK\_HZ}}
+{\footnotesize\ttfamily \label{bsp__timer_8c_a6df2aff0b3ae02cf824bfad9a740a1ce} 
+\+\#define TICK\+\_\+\+HZ~1000\+UL}
+
+\Hypertarget{bsp__timer_8c_aa7914b8d7fd0bae056b85acb5062676b}\index{bsp\_timer.c@{bsp\_timer.c}!TIMER\_PRESCALER@{TIMER\_PRESCALER}}
+\index{TIMER\_PRESCALER@{TIMER\_PRESCALER}!bsp\_timer.c@{bsp\_timer.c}}
+\doxysubsubsection{\texorpdfstring{TIMER\_PRESCALER}{TIMER\_PRESCALER}}
+{\footnotesize\ttfamily \label{bsp__timer_8c_aa7914b8d7fd0bae056b85acb5062676b} 
+\+\#define TIMER\+\_\+\+PRESCALER~8UL}
+
+
+
+\label{bsp__timer_8c_doc-func-members}
+\Hypertarget{bsp__timer_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{bsp__timer_8c_ad39420cdd896dd12c68e36313139d0a5}\index{bsp\_timer.c@{bsp\_timer.c}!ISR@{ISR}}
+\index{ISR@{ISR}!bsp\_timer.c@{bsp\_timer.c}}
+\doxysubsubsection{\texorpdfstring{ISR()}{ISR()}}
+{\footnotesize\ttfamily \label{bsp__timer_8c_ad39420cdd896dd12c68e36313139d0a5} 
+ISR (\begin{DoxyParamCaption}\item[{TIMER1\+\_\+\+COMPA\+\_\+vect}]{}{}\end{DoxyParamCaption})}
+

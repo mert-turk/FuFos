@@ -1,0 +1,23 @@
+\chapter{Overview }
+\hypertarget{index}{}\label{index}\index{Overview@{Overview}}
+ \hypertarget{index_intro_sec}{}\doxysection{\texorpdfstring{Executive Summary}{Executive Summary}}\label{index_intro_sec}
+Welcome to the software documentation for the {\bfseries{Fault-\/\+Tolerant Firmware Update Bootloader}}. This project provides a robust, fail-\/safe mechanism for updating embedded firmware in high-\/reliability environments.
+
+The documentation is structured to provide full bi-\/directional traceability across all phases of development—from high-\/level software requirements down to low-\/level implementation and verification.\hypertarget{index_doc_structure}{}\doxysection{\texorpdfstring{Documentation Structure}{Documentation Structure}}\label{index_doc_structure}
+
+\begin{DoxyTable}{3}{}{}{1}
+\SetCell{bg=\tableheadbgcolor,font=\bfseries}Document /\+ Section  &\SetCell{bg=\tableheadbgcolor,font=\bfseries}Scope \& Purpose  &\SetCell{bg=\tableheadbgcolor,font=\bfseries}Link  \\
+{\bfseries{Software Requirements (SRS)}}  &High-\/level system behavior, constraints, and compliance targets.  &Read SRS Document  \\
+{\bfseries{Software Design Description (SDD)}}  &Architectural patterns, state machine transitions, and memory layout.  &Read SDD Document  \\
+{\bfseries{API \& Module References}}  &Functional groups, hardware drivers, and public interfaces.  &modules  \\
+{\bfseries{Data Structures}}  &Memory map, payload headers, and flash descriptors.  &annotated  \\
+{\bfseries{File Directory}}  &Project file organization and header dependencies.  &files  \\
+\end{DoxyTable}
+
+
+\DoxyHorRuler{0}
+
+
+\begin{DoxyNote}{Note}
+{\bfseries{Traceability Notice:\+}} All public API functions are tagged with corresponding SRS requirement IDs (e.\+g., {\ttfamily @satisfies\{REQ\+\_\+\+SW\+\_\+\+FWU\+\_\+001\}}). Refer to the srs\+\_\+traceability matrix for compliance details. 
+\end{DoxyNote}

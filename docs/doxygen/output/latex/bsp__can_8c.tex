@@ -1,0 +1,174 @@
+\doxysection{bsp/\+megas64m1/\+source/\+bsp\+\_\+can.c File Reference}
+\hypertarget{bsp__can_8c}{}\label{bsp__can_8c}\index{bsp/megas64m1/source/bsp\_can.c@{bsp/megas64m1/source/bsp\_can.c}}
+{\ttfamily \+\#include "{}bsp\+\_\+can.\+h"{}}\newline
+{\ttfamily \+\#include "{}bsp.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{bsp__can_8c_aaf8bbb1b15fc126bed2ce5c38934d82e}{BSP\+\_\+\+CANPAGE\+\_\+\+SET}}(mob)
+\begin{DoxyCompactList}\small\item\em It sets CANPAGE resister to Mob specified. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{bsp__can_8c_a9d97c82bafbe5e26d90909ebc9ceb073}{BSP\+\_\+can\+ISRHandler}} (void)
+\item 
+void \doxymbox{\hyperlink{bsp__can_8c_ab082b1311418c19376c5e1ddedfca911}{BSP\+\_\+can\+Init}} (\doxymbox{\hyperlink{struct_b_s_p__can_config__t}{BSP\+\_\+can\+Config\+\_\+t}} const \texorpdfstring{$\ast$}{*}cfg)
+\item 
+void \doxymbox{\hyperlink{bsp__can_8c_a02681f40efbedffd15a18ffefb0780a1}{BSP\+\_\+can\+Baud\+Rate\+Set}} (void)
+\item 
+void \doxymbox{\hyperlink{bsp__can_8c_ac4d29fb68d1d9192786bbdc54a0add89}{BSP\+\_\+can\+Start}} (void)
+\item 
+void \doxymbox{\hyperlink{bsp__can_8c_ae86bc2d7469a1a87715fed8406f58e49}{BSP\+\_\+can\+Sw\+Reset}} (void)
+\item 
+void \doxymbox{\hyperlink{bsp__can_8c_afa6e541e9e352ebdd6493fb47c2da596}{BSP\+\_\+can\+Clear\+MObs}} (void)
+\item 
+void \doxymbox{\hyperlink{bsp__can_8c_a6741db94dec6c649655c40076608dace}{BSP\+\_\+can\+MOb\+Configure}} (\doxymbox{\hyperlink{bsp__can_8h_ab996bb9050a4bd1fdc80579d1e5df481}{BSP\+\_\+can\+Mob\+Number\+\_\+t}} mob\+Nmb, \doxymbox{\hyperlink{bsp__can_8h_a8c5d7714d35fbc12f9b071a56da12491}{BSP\+\_\+can\+Comm\+Type\+\_\+t}} comm\+Type, uint16\+\_\+t Identifier\+Tag, uint16\+\_\+t Identifier\+Mask, uint8\+\_\+t dlc)
+\item 
+void \doxymbox{\hyperlink{bsp__can_8c_a8644870de090e702706807a3d6f2cf0f}{BSP\+\_\+can\+MOb\+Enable}} (\doxymbox{\hyperlink{bsp__can_8h_ab996bb9050a4bd1fdc80579d1e5df481}{BSP\+\_\+can\+Mob\+Number\+\_\+t}} mob\+Nmb)
+\item 
+void \doxymbox{\hyperlink{bsp__can_8c_af8869303fb12108a49b3929d3db15683}{BSP\+\_\+can\+MOb\+Disable}} (\doxymbox{\hyperlink{bsp__can_8h_ab996bb9050a4bd1fdc80579d1e5df481}{BSP\+\_\+can\+Mob\+Number\+\_\+t}} mob\+Nmb)
+\item 
+uint16\+\_\+t \doxymbox{\hyperlink{bsp__can_8c_a10cf6f526848e0c3b618df5419fd89d5}{BSP\+\_\+can\+Get\+Identifier\+Tag}} (void)
+\item 
+uint8\+\_\+t \doxymbox{\hyperlink{bsp__can_8c_a807fb4bc65d32244e6a3f02f5e9fb00d}{BSP\+\_\+can\+Get\+TEC}} (void)
+\item 
+uint8\+\_\+t \doxymbox{\hyperlink{bsp__can_8c_a7a83608566ae929a45a3d1b785874f6f}{BSP\+\_\+can\+Get\+REC}} (void)
+\item 
+void \doxymbox{\hyperlink{bsp__can_8c_a1cbfbfe1a4ae4a83050902c1a5713349}{BSP\+\_\+can\+Receive}} (\doxymbox{\hyperlink{bsp__can_8h_a82652e7a82acafd4741d3e40bd717ba8}{BSP\+\_\+can\+Frame\+\_\+t}} \texorpdfstring{$\ast$}{*}const f)
+\item 
+\doxymbox{\hyperlink{bsp__can_8h_a9ef6c5ed52047d4b925f9c1f56eccb2e}{BSP\+\_\+can\+Status\+\_\+t}} \doxymbox{\hyperlink{bsp__can_8c_a56bf4482691dd597d526f6f7a2c83dcd}{BSP\+\_\+can\+Send}} (const \doxymbox{\hyperlink{bsp__can_8h_a82652e7a82acafd4741d3e40bd717ba8}{BSP\+\_\+can\+Frame\+\_\+t}} \texorpdfstring{$\ast$}{*}f, \doxymbox{\hyperlink{bsp__can_8h_ab996bb9050a4bd1fdc80579d1e5df481}{BSP\+\_\+can\+Mob\+Number\+\_\+t}} mob)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\DoxyHorRuler{0}
+
+
+\begin{DoxyAuthor}{Author}
+Mert Ali Turk (\href{mailto:mert.tuerk@zarm-technik.de}{\texttt{mert.\+tuerk@zarm-\/technik.\+de}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2026-\/xx-\/xx
+\end{DoxyDate}
+BSP can implementation file. Specifically implemented to be able to comply with CANopen standart.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2026 Zarm Technik AG. All rights reserved. 
+\end{DoxyCopyright}
+
+
+\label{bsp__can_8c_doc-define-members}
+\Hypertarget{bsp__can_8c_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{bsp__can_8c_aaf8bbb1b15fc126bed2ce5c38934d82e}\index{bsp\_can.c@{bsp\_can.c}!BSP\_CANPAGE\_SET@{BSP\_CANPAGE\_SET}}
+\index{BSP\_CANPAGE\_SET@{BSP\_CANPAGE\_SET}!bsp\_can.c@{bsp\_can.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_CANPAGE\_SET}{BSP\_CANPAGE\_SET}}
+{\footnotesize\ttfamily \label{bsp__can_8c_aaf8bbb1b15fc126bed2ce5c38934d82e} 
+\+\#define BSP\+\_\+\+CANPAGE\+\_\+\+SET(\begin{DoxyParamCaption}\item[{}]{mob}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(CANPAGE\ =\ (uint8\_t)((uint8\_t)(mob)\ <<\ MOBNB0))}
+
+\end{DoxyCode}
+
+
+It sets CANPAGE resister to Mob specified. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mob} & Mob number \\
+\hline
+\end{DoxyParams}
+
+
+\label{bsp__can_8c_doc-func-members}
+\Hypertarget{bsp__can_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{bsp__can_8c_a02681f40efbedffd15a18ffefb0780a1}\index{bsp\_can.c@{bsp\_can.c}!BSP\_canBaudRateSet@{BSP\_canBaudRateSet}}
+\index{BSP\_canBaudRateSet@{BSP\_canBaudRateSet}!bsp\_can.c@{bsp\_can.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_canBaudRateSet()}{BSP\_canBaudRateSet()}}
+{\footnotesize\ttfamily \label{bsp__can_8c_a02681f40efbedffd15a18ffefb0780a1} 
+void BSP\+\_\+can\+Baud\+Rate\+Set (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{bsp__can_8c_afa6e541e9e352ebdd6493fb47c2da596}\index{bsp\_can.c@{bsp\_can.c}!BSP\_canClearMObs@{BSP\_canClearMObs}}
+\index{BSP\_canClearMObs@{BSP\_canClearMObs}!bsp\_can.c@{bsp\_can.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_canClearMObs()}{BSP\_canClearMObs()}}
+{\footnotesize\ttfamily \label{bsp__can_8c_afa6e541e9e352ebdd6493fb47c2da596} 
+void BSP\+\_\+can\+Clear\+MObs (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{bsp__can_8c_a10cf6f526848e0c3b618df5419fd89d5}\index{bsp\_can.c@{bsp\_can.c}!BSP\_canGetIdentifierTag@{BSP\_canGetIdentifierTag}}
+\index{BSP\_canGetIdentifierTag@{BSP\_canGetIdentifierTag}!bsp\_can.c@{bsp\_can.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_canGetIdentifierTag()}{BSP\_canGetIdentifierTag()}}
+{\footnotesize\ttfamily \label{bsp__can_8c_a10cf6f526848e0c3b618df5419fd89d5} 
+uint16\+\_\+t BSP\+\_\+can\+Get\+Identifier\+Tag (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{bsp__can_8c_a7a83608566ae929a45a3d1b785874f6f}\index{bsp\_can.c@{bsp\_can.c}!BSP\_canGetREC@{BSP\_canGetREC}}
+\index{BSP\_canGetREC@{BSP\_canGetREC}!bsp\_can.c@{bsp\_can.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_canGetREC()}{BSP\_canGetREC()}}
+{\footnotesize\ttfamily \label{bsp__can_8c_a7a83608566ae929a45a3d1b785874f6f} 
+uint8\+\_\+t BSP\+\_\+can\+Get\+REC (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{bsp__can_8c_a807fb4bc65d32244e6a3f02f5e9fb00d}\index{bsp\_can.c@{bsp\_can.c}!BSP\_canGetTEC@{BSP\_canGetTEC}}
+\index{BSP\_canGetTEC@{BSP\_canGetTEC}!bsp\_can.c@{bsp\_can.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_canGetTEC()}{BSP\_canGetTEC()}}
+{\footnotesize\ttfamily \label{bsp__can_8c_a807fb4bc65d32244e6a3f02f5e9fb00d} 
+uint8\+\_\+t BSP\+\_\+can\+Get\+TEC (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{bsp__can_8c_ab082b1311418c19376c5e1ddedfca911}\index{bsp\_can.c@{bsp\_can.c}!BSP\_canInit@{BSP\_canInit}}
+\index{BSP\_canInit@{BSP\_canInit}!bsp\_can.c@{bsp\_can.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_canInit()}{BSP\_canInit()}}
+{\footnotesize\ttfamily \label{bsp__can_8c_ab082b1311418c19376c5e1ddedfca911} 
+void BSP\+\_\+can\+Init (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_b_s_p__can_config__t}{BSP\+\_\+can\+Config\+\_\+t}} const \texorpdfstring{$\ast$}{*}}]{cfg}{}\end{DoxyParamCaption})}
+
+\Hypertarget{bsp__can_8c_a9d97c82bafbe5e26d90909ebc9ceb073}\index{bsp\_can.c@{bsp\_can.c}!BSP\_canISRHandler@{BSP\_canISRHandler}}
+\index{BSP\_canISRHandler@{BSP\_canISRHandler}!bsp\_can.c@{bsp\_can.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_canISRHandler()}{BSP\_canISRHandler()}}
+{\footnotesize\ttfamily \label{bsp__can_8c_a9d97c82bafbe5e26d90909ebc9ceb073} 
+void BSP\+\_\+can\+ISRHandler (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{bsp__can_8c_a6741db94dec6c649655c40076608dace}\index{bsp\_can.c@{bsp\_can.c}!BSP\_canMObConfigure@{BSP\_canMObConfigure}}
+\index{BSP\_canMObConfigure@{BSP\_canMObConfigure}!bsp\_can.c@{bsp\_can.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_canMObConfigure()}{BSP\_canMObConfigure()}}
+{\footnotesize\ttfamily \label{bsp__can_8c_a6741db94dec6c649655c40076608dace} 
+void BSP\+\_\+can\+MOb\+Configure (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{bsp__can_8h_ab996bb9050a4bd1fdc80579d1e5df481}{BSP\+\_\+can\+Mob\+Number\+\_\+t}}}]{mob\+Nmb}{, }\item[{\doxymbox{\hyperlink{bsp__can_8h_a8c5d7714d35fbc12f9b071a56da12491}{BSP\+\_\+can\+Comm\+Type\+\_\+t}}}]{comm\+Type}{, }\item[{uint16\+\_\+t}]{Identifier\+Tag}{, }\item[{uint16\+\_\+t}]{Identifier\+Mask}{, }\item[{uint8\+\_\+t}]{dlc}{}\end{DoxyParamCaption})}
+
+\Hypertarget{bsp__can_8c_af8869303fb12108a49b3929d3db15683}\index{bsp\_can.c@{bsp\_can.c}!BSP\_canMObDisable@{BSP\_canMObDisable}}
+\index{BSP\_canMObDisable@{BSP\_canMObDisable}!bsp\_can.c@{bsp\_can.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_canMObDisable()}{BSP\_canMObDisable()}}
+{\footnotesize\ttfamily \label{bsp__can_8c_af8869303fb12108a49b3929d3db15683} 
+void BSP\+\_\+can\+MOb\+Disable (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{bsp__can_8h_ab996bb9050a4bd1fdc80579d1e5df481}{BSP\+\_\+can\+Mob\+Number\+\_\+t}}}]{mob\+Nmb}{}\end{DoxyParamCaption})}
+
+\Hypertarget{bsp__can_8c_a8644870de090e702706807a3d6f2cf0f}\index{bsp\_can.c@{bsp\_can.c}!BSP\_canMObEnable@{BSP\_canMObEnable}}
+\index{BSP\_canMObEnable@{BSP\_canMObEnable}!bsp\_can.c@{bsp\_can.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_canMObEnable()}{BSP\_canMObEnable()}}
+{\footnotesize\ttfamily \label{bsp__can_8c_a8644870de090e702706807a3d6f2cf0f} 
+void BSP\+\_\+can\+MOb\+Enable (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{bsp__can_8h_ab996bb9050a4bd1fdc80579d1e5df481}{BSP\+\_\+can\+Mob\+Number\+\_\+t}}}]{mob\+Nmb}{}\end{DoxyParamCaption})}
+
+\Hypertarget{bsp__can_8c_a1cbfbfe1a4ae4a83050902c1a5713349}\index{bsp\_can.c@{bsp\_can.c}!BSP\_canReceive@{BSP\_canReceive}}
+\index{BSP\_canReceive@{BSP\_canReceive}!bsp\_can.c@{bsp\_can.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_canReceive()}{BSP\_canReceive()}}
+{\footnotesize\ttfamily \label{bsp__can_8c_a1cbfbfe1a4ae4a83050902c1a5713349} 
+void BSP\+\_\+can\+Receive (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{bsp__can_8h_a82652e7a82acafd4741d3e40bd717ba8}{BSP\+\_\+can\+Frame\+\_\+t}} \texorpdfstring{$\ast$}{*}const}]{f}{}\end{DoxyParamCaption})}
+
+\Hypertarget{bsp__can_8c_a56bf4482691dd597d526f6f7a2c83dcd}\index{bsp\_can.c@{bsp\_can.c}!BSP\_canSend@{BSP\_canSend}}
+\index{BSP\_canSend@{BSP\_canSend}!bsp\_can.c@{bsp\_can.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_canSend()}{BSP\_canSend()}}
+{\footnotesize\ttfamily \label{bsp__can_8c_a56bf4482691dd597d526f6f7a2c83dcd} 
+\doxymbox{\hyperlink{bsp__can_8h_a9ef6c5ed52047d4b925f9c1f56eccb2e}{BSP\+\_\+can\+Status\+\_\+t}} BSP\+\_\+can\+Send (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{bsp__can_8h_a82652e7a82acafd4741d3e40bd717ba8}{BSP\+\_\+can\+Frame\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{f}{, }\item[{\doxymbox{\hyperlink{bsp__can_8h_ab996bb9050a4bd1fdc80579d1e5df481}{BSP\+\_\+can\+Mob\+Number\+\_\+t}}}]{mob}{}\end{DoxyParamCaption})}
+
+\Hypertarget{bsp__can_8c_ac4d29fb68d1d9192786bbdc54a0add89}\index{bsp\_can.c@{bsp\_can.c}!BSP\_canStart@{BSP\_canStart}}
+\index{BSP\_canStart@{BSP\_canStart}!bsp\_can.c@{bsp\_can.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_canStart()}{BSP\_canStart()}}
+{\footnotesize\ttfamily \label{bsp__can_8c_ac4d29fb68d1d9192786bbdc54a0add89} 
+void BSP\+\_\+can\+Start (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{bsp__can_8c_ae86bc2d7469a1a87715fed8406f58e49}\index{bsp\_can.c@{bsp\_can.c}!BSP\_canSwReset@{BSP\_canSwReset}}
+\index{BSP\_canSwReset@{BSP\_canSwReset}!bsp\_can.c@{bsp\_can.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_canSwReset()}{BSP\_canSwReset()}}
+{\footnotesize\ttfamily \label{bsp__can_8c_ae86bc2d7469a1a87715fed8406f58e49} 
+void BSP\+\_\+can\+Sw\+Reset (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+

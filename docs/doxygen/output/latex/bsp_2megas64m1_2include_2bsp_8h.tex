@@ -1,0 +1,147 @@
+\doxysection{bsp/\+megas64m1/\+include/\+bsp.h File Reference}
+\hypertarget{bsp_2megas64m1_2include_2bsp_8h}{}\label{bsp_2megas64m1_2include_2bsp_8h}\index{bsp/megas64m1/include/bsp.h@{bsp/megas64m1/include/bsp.h}}
+
+
+Board support package development for ATMEGA64\+M1 microcontroller.  
+
+
+{\ttfamily \+\#include $<$stdint.\+h$>$}\newline
+{\ttfamily \+\#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \+\#include $<$avr/\+io.\+h$>$}\newline
+{\ttfamily \+\#include $<$avr/\+boot.\+h$>$}\newline
+{\ttfamily \+\#include $<$avr/\+interrupt.\+h$>$}\newline
+{\ttfamily \+\#include $<$avr/\+pgmspace.\+h$>$}\newline
+{\ttfamily \+\#include "{}bsp\+\_\+can.\+h"{}}\newline
+{\ttfamily \+\#include "{}bsp\+\_\+timer.\+h"{}}\newline
+{\ttfamily \+\#include "{}bsp\+\_\+gpio.\+h"{}}\newline
+{\ttfamily \+\#include $<$string.\+h$>$}\newline
+{\ttfamily \+\#include "{}amr.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{bsp_2megas64m1_2include_2bsp_8h_ad31cac8d79ffa91507ff9740b3c0fa87}{MAXIMUM\+\_\+\+DATA\+\_\+\+BYTES}}~8U
+\item 
+\+\#define \doxymbox{\hyperlink{bsp_2megas64m1_2include_2bsp_8h_a4d03005876984a1924cf4304f75e4eed}{BSP\+\_\+disable\+Interrupts}}()
+\item 
+\+\#define \doxymbox{\hyperlink{bsp_2megas64m1_2include_2bsp_8h_a3acf0a6be9bd59753f8d3dfe6fcd9f5d}{BSP\+\_\+enable\+Interrupts}}(sreg\+\_\+)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{bsp_2megas64m1_2include_2bsp_8h_a6c4642687bc2b3a58009bf2dfa34972b}{BSP\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Receive firmware data. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{bsp_2megas64m1_2include_2bsp_8h_aa08ed1afcc3a2a56a702a5871c334c73}{BSP\+\_\+start}} (void)
+\begin{DoxyCompactList}\small\item\em Receive firmware data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Board support package development for ATMEGA64\+M1 microcontroller. 
+
+\begin{DoxyAuthor}{Author}
+Mert Ali Turk (\href{mailto:mert.tuerk@zarm-technik.de}{\texttt{mert.\+tuerk@zarm-\/technik.\+de}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2026-\/08-\/06
+\end{DoxyDate}
+BSP is developed to layered hardware from application logic in order to simplfy porting to code and making testing easier.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2026 Zarm Technik AG. All rights reserved. 
+\end{DoxyCopyright}
+
+
+\label{bsp_2megas64m1_2include_2bsp_8h_doc-define-members}
+\Hypertarget{bsp_2megas64m1_2include_2bsp_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{bsp_2megas64m1_2include_2bsp_8h_a4d03005876984a1924cf4304f75e4eed}\index{bsp.h@{bsp.h}!BSP\_disableInterrupts@{BSP\_disableInterrupts}}
+\index{BSP\_disableInterrupts@{BSP\_disableInterrupts}!bsp.h@{bsp.h}}
+\doxysubsubsection{\texorpdfstring{BSP\_disableInterrupts}{BSP\_disableInterrupts}}
+{\footnotesize\ttfamily \label{bsp_2megas64m1_2include_2bsp_8h_a4d03005876984a1924cf4304f75e4eed} 
+\+\#define BSP\+\_\+disable\+Interrupts(\begin{DoxyParamCaption}\item[{}]{void}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cli();}
+
+\end{DoxyCode}
+\Hypertarget{bsp_2megas64m1_2include_2bsp_8h_a3acf0a6be9bd59753f8d3dfe6fcd9f5d}\index{bsp.h@{bsp.h}!BSP\_enableInterrupts@{BSP\_enableInterrupts}}
+\index{BSP\_enableInterrupts@{BSP\_enableInterrupts}!bsp.h@{bsp.h}}
+\doxysubsubsection{\texorpdfstring{BSP\_enableInterrupts}{BSP\_enableInterrupts}}
+{\footnotesize\ttfamily \label{bsp_2megas64m1_2include_2bsp_8h_a3acf0a6be9bd59753f8d3dfe6fcd9f5d} 
+\+\#define BSP\+\_\+enable\+Interrupts(\begin{DoxyParamCaption}\item[{}]{sreg\+\_\+}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\doxymbox{\hyperlink{tests_2bsp__mock_2include_2bsp_8h_af9f788bfb1a11d4a5a22eb76dfb9d950}{SREG}}\ =\ sreg\_;}
+
+\end{DoxyCode}
+\Hypertarget{bsp_2megas64m1_2include_2bsp_8h_ad31cac8d79ffa91507ff9740b3c0fa87}\index{bsp.h@{bsp.h}!MAXIMUM\_DATA\_BYTES@{MAXIMUM\_DATA\_BYTES}}
+\index{MAXIMUM\_DATA\_BYTES@{MAXIMUM\_DATA\_BYTES}!bsp.h@{bsp.h}}
+\doxysubsubsection{\texorpdfstring{MAXIMUM\_DATA\_BYTES}{MAXIMUM\_DATA\_BYTES}}
+{\footnotesize\ttfamily \label{bsp_2megas64m1_2include_2bsp_8h_ad31cac8d79ffa91507ff9740b3c0fa87} 
+\+\#define MAXIMUM\+\_\+\+DATA\+\_\+\+BYTES~8U}
+
+
+
+\label{bsp_2megas64m1_2include_2bsp_8h_doc-func-members}
+\Hypertarget{bsp_2megas64m1_2include_2bsp_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{bsp_2megas64m1_2include_2bsp_8h_a6c4642687bc2b3a58009bf2dfa34972b}\index{bsp.h@{bsp.h}!BSP\_init@{BSP\_init}}
+\index{BSP\_init@{BSP\_init}!bsp.h@{bsp.h}}
+\doxysubsubsection{\texorpdfstring{BSP\_init()}{BSP\_init()}}
+{\footnotesize\ttfamily \label{bsp_2megas64m1_2include_2bsp_8h_a6c4642687bc2b3a58009bf2dfa34972b} 
+void BSP\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Receive firmware data. 
+
+Receives firmware packets from the communication interface.
+
+Implements REQ-\/\+FUNC-\/0004
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em buffer} & Pointer to firmware data. \\
+\hline
+\doxymbox{\texttt{in}}  & {\em length} & Number of bytes.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em true} & Reception successful. \\
+\hline
+{\em false} & Reception failed. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{bsp_2megas64m1_2include_2bsp_8h_aa08ed1afcc3a2a56a702a5871c334c73}\index{bsp.h@{bsp.h}!BSP\_start@{BSP\_start}}
+\index{BSP\_start@{BSP\_start}!bsp.h@{bsp.h}}
+\doxysubsubsection{\texorpdfstring{BSP\_start()}{BSP\_start()}}
+{\footnotesize\ttfamily \label{bsp_2megas64m1_2include_2bsp_8h_aa08ed1afcc3a2a56a702a5871c334c73} 
+void BSP\+\_\+start (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Receive firmware data. 
+
+Receives firmware packets from the communication interface.
+
+Implements REQ-\/\+FUNC-\/0004
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em buffer} & Pointer to firmware data. \\
+\hline
+\doxymbox{\texttt{in}}  & {\em length} & Number of bytes.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em true} & Reception successful. \\
+\hline
+{\em false} & Reception failed. \\
+\hline
+\end{DoxyRetVals}

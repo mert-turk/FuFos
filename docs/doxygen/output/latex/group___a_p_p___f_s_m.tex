@@ -1,0 +1,297 @@
+\doxysubsection{Finite State Machine }
+\hypertarget{group___a_p_p___f_s_m}{}\label{group___a_p_p___f_s_m}\index{Finite State Machine@{Finite State Machine}}
+
+
+Finite state machine implementation.  
+
+
+\doxysubsubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_event}{Event}}
+\begin{DoxyCompactList}\small\item\em \doxylink{struct_event}{Event} queue. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{struct_evt_queue}{Evt\+Queue}}
+\begin{DoxyCompactList}\small\item\em \doxylink{struct_event}{Event} Queue data structures. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{struct_fsm}{Fsm}}
+\begin{DoxyCompactList}\small\item\em \doxylink{struct_fsm}{Fsm} data structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga228783873815e02b069a286af4512aba}{EVENT\+\_\+\+SIZE}}~10U
+\item 
+\+\#define \doxymbox{\hyperlink{group___a_p_p___f_s_m_gaeb41a85758334f69021b20bdce30cbbb}{TRAN}}(target\+\_\+)
+\begin{DoxyCompactList}\small\item\em Macro like function for transition between states. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint16\+\_\+t \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga42fe4fb8bd53d4cad6b514f6cbe2fc67}{Signal}}
+\begin{DoxyCompactList}\small\item\em Type alias for signals. \end{DoxyCompactList}\item 
+typedef struct Fsm \doxymbox{\hyperlink{group___a_p_p___f_s_m_gaa84d6df096283e2cbabd28be531b1612}{Fsm}}
+\begin{DoxyCompactList}\small\item\em Forward declaration of \doxylink{struct_fsm}{Fsm} data obejct. \end{DoxyCompactList}\item 
+typedef \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga5d74787dedbc4e11c1ab15bf487e61f8}{State}}(\texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga080a87a8d9406212c4c40c878c5bf36b}{State\+Handler}}) (\doxymbox{\hyperlink{struct_fsm}{Fsm}} \texorpdfstring{$\ast$}{*}const me, \doxymbox{\hyperlink{struct_event}{Event}} const \texorpdfstring{$\ast$}{*}const e)
+\begin{DoxyCompactList}\small\item\em Function pointer to state handling. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga7788fc98fede5c788c8be9b38d927383}{Reserved\+Signals}} \{ \doxymbox{\hyperlink{group___a_p_p___f_s_m_gga7788fc98fede5c788c8be9b38d927383a4f82e141013e3778b1d7ee23f4f8ecd7}{INIT\+\_\+\+SIG}}
+, \doxymbox{\hyperlink{group___a_p_p___f_s_m_gga7788fc98fede5c788c8be9b38d927383a75cfb5b8d7194753541e4154023de198}{ENTRY\+\_\+\+SIG}}
+, \doxymbox{\hyperlink{group___a_p_p___f_s_m_gga7788fc98fede5c788c8be9b38d927383adae8493fc1597afcd17591c6d533dee4}{EXIT\+\_\+\+SIG}}
+, \doxymbox{\hyperlink{group___a_p_p___f_s_m_gga7788fc98fede5c788c8be9b38d927383a70782b2c29104fef5c3bbc1aafdc7d4a}{USER\+\_\+\+SIG}}
+ \}
+\begin{DoxyCompactList}\small\item\em Rserved signals for FSM dispatcher. \end{DoxyCompactList}\item 
+enum \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga5d74787dedbc4e11c1ab15bf487e61f8}{State}} \{ \doxymbox{\hyperlink{group___a_p_p___f_s_m_gga5d74787dedbc4e11c1ab15bf487e61f8a641ab6614ac422ef93de5e08082cfbda}{TRAN\+\_\+\+STATUS}}
+, \doxymbox{\hyperlink{group___a_p_p___f_s_m_gga5d74787dedbc4e11c1ab15bf487e61f8a6e0aa255541f160f23e577798ff3acb7}{HANDLED\+\_\+\+STATUS}}
+, \doxymbox{\hyperlink{group___a_p_p___f_s_m_gga5d74787dedbc4e11c1ab15bf487e61f8a8a528e0e282462bc34a29a8cbf727060}{IGNORED\+\_\+\+STATUS}}
+, \doxymbox{\hyperlink{group___a_p_p___f_s_m_gga5d74787dedbc4e11c1ab15bf487e61f8aaf0be153cd3ef0fa9cc8de5cc69ce234}{INIT\+\_\+\+STATUS}}
+ \}
+\begin{DoxyCompactList}\small\item\em Status of the state handling. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga8354ce10690e8c946adee86febc3a183}{Fsm\+\_\+ctor}} (\doxymbox{\hyperlink{struct_fsm}{Fsm}} \texorpdfstring{$\ast$}{*}const me, \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga080a87a8d9406212c4c40c878c5bf36b}{State\+Handler}} initial)
+\begin{DoxyCompactList}\small\item\em \doxylink{struct_fsm}{Fsm} constructer function. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga503af3ee1874946bd85f9018737775ff}{Fsm\+\_\+init}} (\doxymbox{\hyperlink{struct_fsm}{Fsm}} \texorpdfstring{$\ast$}{*}const me, \doxymbox{\hyperlink{struct_event}{Event}} const \texorpdfstring{$\ast$}{*}const e)
+\begin{DoxyCompactList}\small\item\em \doxylink{struct_fsm}{Fsm} data structure. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___a_p_p___f_s_m_gacb40f808c7fe3dbe8d7b6819d6f77a94}{Fsm\+\_\+dispatch}} (\doxymbox{\hyperlink{struct_fsm}{Fsm}} \texorpdfstring{$\ast$}{*}const me, \doxymbox{\hyperlink{struct_event}{Event}} const \texorpdfstring{$\ast$}{*}const e)
+\begin{DoxyCompactList}\small\item\em \doxylink{struct_fsm}{Fsm} data structure. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___a_p_p___f_s_m_gaf4ee4c4fec7b7b9804a291749f15a7c2}{Evt\+Queue\+\_\+\+Create}} (\doxymbox{\hyperlink{struct_evt_queue}{Evt\+Queue}} \texorpdfstring{$\ast$}{*}const me)
+\begin{DoxyCompactList}\small\item\em Evemt queue create. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___a_p_p___f_s_m_gac4cfb74e148e8c7cab5b9cecf0c00a38}{Evt\+Queue\+\_\+post}} (\doxymbox{\hyperlink{struct_evt_queue}{Evt\+Queue}} \texorpdfstring{$\ast$}{*}const me, \doxymbox{\hyperlink{struct_event}{Event}} const \texorpdfstring{$\ast$}{*}const e)
+\begin{DoxyCompactList}\small\item\em Evemt queue create. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{struct_event}{Event}} \doxymbox{\hyperlink{group___a_p_p___f_s_m_gab09810cb7c1ae4f5da98e823b0c909b1}{Evt\+Queue\+\_\+pend}} (\doxymbox{\hyperlink{struct_evt_queue}{Evt\+Queue}} \texorpdfstring{$\ast$}{*}const me)
+\begin{DoxyCompactList}\small\item\em Evemt queue create. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{group___a_p_p___f_s_m_gaf3eedf44731a744661d5adc08beb7b9f}{Evt\+Queue\+\_\+is\+Pending}} (\doxymbox{\hyperlink{struct_evt_queue}{Evt\+Queue}} const \texorpdfstring{$\ast$}{*}const me)
+\begin{DoxyCompactList}\small\item\em Evemt queue create. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga9ada9a864987666e9e3332d539cc0de7}{event\+Loop}} (void \texorpdfstring{$\ast$}{*}pdata)
+\begin{DoxyCompactList}\small\item\em Evemt queue create. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Detailed Description}
+Finite state machine implementation. 
+
+
+
+\label{group___a_p_p___f_s_m_doc-define-members}
+\Hypertarget{group___a_p_p___f_s_m_doc-define-members}
+\doxysubsubsection{Macro Definition Documentation}
+\Hypertarget{group___a_p_p___f_s_m_ga228783873815e02b069a286af4512aba}\index{Finite State Machine@{Finite State Machine}!EVENT\_SIZE@{EVENT\_SIZE}}
+\index{EVENT\_SIZE@{EVENT\_SIZE}!Finite State Machine@{Finite State Machine}}
+\doxysubsubsubsection{\texorpdfstring{EVENT\_SIZE}{EVENT\_SIZE}}
+{\footnotesize\ttfamily \label{group___a_p_p___f_s_m_ga228783873815e02b069a286af4512aba} 
+\+\#define EVENT\+\_\+\+SIZE~10U}
+
+\Hypertarget{group___a_p_p___f_s_m_gaeb41a85758334f69021b20bdce30cbbb}\index{Finite State Machine@{Finite State Machine}!TRAN@{TRAN}}
+\index{TRAN@{TRAN}!Finite State Machine@{Finite State Machine}}
+\doxysubsubsubsection{\texorpdfstring{TRAN}{TRAN}}
+{\footnotesize\ttfamily \label{group___a_p_p___f_s_m_gaeb41a85758334f69021b20bdce30cbbb} 
+\+\#define TRAN(\begin{DoxyParamCaption}\item[{}]{target\+\_\+}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\ (\ (\doxymbox{\hyperlink{struct_fsm}{Fsm}}\ *)me\ )-\/>state\ =\ (\doxymbox{\hyperlink{group___a_p_p___f_s_m_ga080a87a8d9406212c4c40c878c5bf36b}{StateHandler}})(\ target\_\ ),\ \doxymbox{\hyperlink{group___a_p_p___f_s_m_gga5d74787dedbc4e11c1ab15bf487e61f8a641ab6614ac422ef93de5e08082cfbda}{TRAN\_STATUS}}\ )}
+
+\end{DoxyCode}
+
+
+Macro like function for transition between states. 
+
+
+
+\label{group___a_p_p___f_s_m_doc-typedef-members}
+\Hypertarget{group___a_p_p___f_s_m_doc-typedef-members}
+\doxysubsubsection{Typedef Documentation}
+\Hypertarget{group___a_p_p___f_s_m_gaa84d6df096283e2cbabd28be531b1612}\index{Finite State Machine@{Finite State Machine}!Fsm@{Fsm}}
+\index{Fsm@{Fsm}!Finite State Machine@{Finite State Machine}}
+\doxysubsubsubsection{\texorpdfstring{Fsm}{Fsm}}
+{\footnotesize\ttfamily \label{group___a_p_p___f_s_m_gaa84d6df096283e2cbabd28be531b1612} 
+typedef struct Fsm Fsm}
+
+
+
+Forward declaration of \doxylink{struct_fsm}{Fsm} data obejct. 
+
+\Hypertarget{group___a_p_p___f_s_m_ga42fe4fb8bd53d4cad6b514f6cbe2fc67}\index{Finite State Machine@{Finite State Machine}!Signal@{Signal}}
+\index{Signal@{Signal}!Finite State Machine@{Finite State Machine}}
+\doxysubsubsubsection{\texorpdfstring{Signal}{Signal}}
+{\footnotesize\ttfamily \label{group___a_p_p___f_s_m_ga42fe4fb8bd53d4cad6b514f6cbe2fc67} 
+typedef uint16\+\_\+t \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga42fe4fb8bd53d4cad6b514f6cbe2fc67}{Signal}}}
+
+
+
+Type alias for signals. 
+
+\Hypertarget{group___a_p_p___f_s_m_ga080a87a8d9406212c4c40c878c5bf36b}\index{Finite State Machine@{Finite State Machine}!StateHandler@{StateHandler}}
+\index{StateHandler@{StateHandler}!Finite State Machine@{Finite State Machine}}
+\doxysubsubsubsection{\texorpdfstring{StateHandler}{StateHandler}}
+{\footnotesize\ttfamily \label{group___a_p_p___f_s_m_ga080a87a8d9406212c4c40c878c5bf36b} 
+typedef \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga5d74787dedbc4e11c1ab15bf487e61f8}{State}}(\texorpdfstring{$\ast$}{*} State\+Handler) (\doxymbox{\hyperlink{struct_fsm}{Fsm}} \texorpdfstring{$\ast$}{*}const me, \doxymbox{\hyperlink{struct_event}{Event}} const \texorpdfstring{$\ast$}{*}const e)}
+
+
+
+Function pointer to state handling. 
+
+
+
+\label{group___a_p_p___f_s_m_doc-enum-members}
+\Hypertarget{group___a_p_p___f_s_m_doc-enum-members}
+\doxysubsubsection{Enumeration Type Documentation}
+\Hypertarget{group___a_p_p___f_s_m_ga7788fc98fede5c788c8be9b38d927383}\index{Finite State Machine@{Finite State Machine}!ReservedSignals@{ReservedSignals}}
+\index{ReservedSignals@{ReservedSignals}!Finite State Machine@{Finite State Machine}}
+\doxysubsubsubsection{\texorpdfstring{ReservedSignals}{ReservedSignals}}
+{\footnotesize\ttfamily \label{group___a_p_p___f_s_m_ga7788fc98fede5c788c8be9b38d927383} 
+enum \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga7788fc98fede5c788c8be9b38d927383}{Reserved\+Signals}}}
+
+
+
+Rserved signals for FSM dispatcher. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INIT\_SIG@{INIT\_SIG}!Finite State Machine@{Finite State Machine}}
+\index{Finite State Machine@{Finite State Machine}!INIT\_SIG@{INIT\_SIG}}
+}\Hypertarget{group___a_p_p___f_s_m_gga7788fc98fede5c788c8be9b38d927383a4f82e141013e3778b1d7ee23f4f8ecd7}\label{group___a_p_p___f_s_m_gga7788fc98fede5c788c8be9b38d927383a4f82e141013e3778b1d7ee23f4f8ecd7} 
+INIT\+\_\+\+SIG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ENTRY\_SIG@{ENTRY\_SIG}!Finite State Machine@{Finite State Machine}}
+\index{Finite State Machine@{Finite State Machine}!ENTRY\_SIG@{ENTRY\_SIG}}
+}\Hypertarget{group___a_p_p___f_s_m_gga7788fc98fede5c788c8be9b38d927383a75cfb5b8d7194753541e4154023de198}\label{group___a_p_p___f_s_m_gga7788fc98fede5c788c8be9b38d927383a75cfb5b8d7194753541e4154023de198} 
+ENTRY\+\_\+\+SIG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EXIT\_SIG@{EXIT\_SIG}!Finite State Machine@{Finite State Machine}}
+\index{Finite State Machine@{Finite State Machine}!EXIT\_SIG@{EXIT\_SIG}}
+}\Hypertarget{group___a_p_p___f_s_m_gga7788fc98fede5c788c8be9b38d927383adae8493fc1597afcd17591c6d533dee4}\label{group___a_p_p___f_s_m_gga7788fc98fede5c788c8be9b38d927383adae8493fc1597afcd17591c6d533dee4} 
+EXIT\+\_\+\+SIG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USER\_SIG@{USER\_SIG}!Finite State Machine@{Finite State Machine}}
+\index{Finite State Machine@{Finite State Machine}!USER\_SIG@{USER\_SIG}}
+}\Hypertarget{group___a_p_p___f_s_m_gga7788fc98fede5c788c8be9b38d927383a70782b2c29104fef5c3bbc1aafdc7d4a}\label{group___a_p_p___f_s_m_gga7788fc98fede5c788c8be9b38d927383a70782b2c29104fef5c3bbc1aafdc7d4a} 
+USER\+\_\+\+SIG&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{group___a_p_p___f_s_m_ga5d74787dedbc4e11c1ab15bf487e61f8}\index{Finite State Machine@{Finite State Machine}!State@{State}}
+\index{State@{State}!Finite State Machine@{Finite State Machine}}
+\doxysubsubsubsection{\texorpdfstring{State}{State}}
+{\footnotesize\ttfamily \label{group___a_p_p___f_s_m_ga5d74787dedbc4e11c1ab15bf487e61f8} 
+enum \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga5d74787dedbc4e11c1ab15bf487e61f8}{State}}}
+
+
+
+Status of the state handling. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TRAN\_STATUS@{TRAN\_STATUS}!Finite State Machine@{Finite State Machine}}
+\index{Finite State Machine@{Finite State Machine}!TRAN\_STATUS@{TRAN\_STATUS}}
+}\Hypertarget{group___a_p_p___f_s_m_gga5d74787dedbc4e11c1ab15bf487e61f8a641ab6614ac422ef93de5e08082cfbda}\label{group___a_p_p___f_s_m_gga5d74787dedbc4e11c1ab15bf487e61f8a641ab6614ac422ef93de5e08082cfbda} 
+TRAN\+\_\+\+STATUS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HANDLED\_STATUS@{HANDLED\_STATUS}!Finite State Machine@{Finite State Machine}}
+\index{Finite State Machine@{Finite State Machine}!HANDLED\_STATUS@{HANDLED\_STATUS}}
+}\Hypertarget{group___a_p_p___f_s_m_gga5d74787dedbc4e11c1ab15bf487e61f8a6e0aa255541f160f23e577798ff3acb7}\label{group___a_p_p___f_s_m_gga5d74787dedbc4e11c1ab15bf487e61f8a6e0aa255541f160f23e577798ff3acb7} 
+HANDLED\+\_\+\+STATUS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IGNORED\_STATUS@{IGNORED\_STATUS}!Finite State Machine@{Finite State Machine}}
+\index{Finite State Machine@{Finite State Machine}!IGNORED\_STATUS@{IGNORED\_STATUS}}
+}\Hypertarget{group___a_p_p___f_s_m_gga5d74787dedbc4e11c1ab15bf487e61f8a8a528e0e282462bc34a29a8cbf727060}\label{group___a_p_p___f_s_m_gga5d74787dedbc4e11c1ab15bf487e61f8a8a528e0e282462bc34a29a8cbf727060} 
+IGNORED\+\_\+\+STATUS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INIT\_STATUS@{INIT\_STATUS}!Finite State Machine@{Finite State Machine}}
+\index{Finite State Machine@{Finite State Machine}!INIT\_STATUS@{INIT\_STATUS}}
+}\Hypertarget{group___a_p_p___f_s_m_gga5d74787dedbc4e11c1ab15bf487e61f8aaf0be153cd3ef0fa9cc8de5cc69ce234}\label{group___a_p_p___f_s_m_gga5d74787dedbc4e11c1ab15bf487e61f8aaf0be153cd3ef0fa9cc8de5cc69ce234} 
+INIT\+\_\+\+STATUS&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{group___a_p_p___f_s_m_doc-func-members}
+\Hypertarget{group___a_p_p___f_s_m_doc-func-members}
+\doxysubsubsection{Function Documentation}
+\Hypertarget{group___a_p_p___f_s_m_ga9ada9a864987666e9e3332d539cc0de7}\index{Finite State Machine@{Finite State Machine}!eventLoop@{eventLoop}}
+\index{eventLoop@{eventLoop}!Finite State Machine@{Finite State Machine}}
+\doxysubsubsubsection{\texorpdfstring{eventLoop()}{eventLoop()}}
+{\footnotesize\ttfamily \label{group___a_p_p___f_s_m_ga9ada9a864987666e9e3332d539cc0de7} 
+void event\+Loop (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pdata}{}\end{DoxyParamCaption})}
+
+
+
+Evemt queue create. 
+
+\Hypertarget{group___a_p_p___f_s_m_gaf4ee4c4fec7b7b9804a291749f15a7c2}\index{Finite State Machine@{Finite State Machine}!EvtQueue\_Create@{EvtQueue\_Create}}
+\index{EvtQueue\_Create@{EvtQueue\_Create}!Finite State Machine@{Finite State Machine}}
+\doxysubsubsubsection{\texorpdfstring{EvtQueue\_Create()}{EvtQueue\_Create()}}
+{\footnotesize\ttfamily \label{group___a_p_p___f_s_m_gaf4ee4c4fec7b7b9804a291749f15a7c2} 
+void Evt\+Queue\+\_\+\+Create (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_evt_queue}{Evt\+Queue}} \texorpdfstring{$\ast$}{*}const}]{me}{}\end{DoxyParamCaption})}
+
+
+
+Evemt queue create. 
+
+\Hypertarget{group___a_p_p___f_s_m_gaf3eedf44731a744661d5adc08beb7b9f}\index{Finite State Machine@{Finite State Machine}!EvtQueue\_isPending@{EvtQueue\_isPending}}
+\index{EvtQueue\_isPending@{EvtQueue\_isPending}!Finite State Machine@{Finite State Machine}}
+\doxysubsubsubsection{\texorpdfstring{EvtQueue\_isPending()}{EvtQueue\_isPending()}}
+{\footnotesize\ttfamily \label{group___a_p_p___f_s_m_gaf3eedf44731a744661d5adc08beb7b9f} 
+bool Evt\+Queue\+\_\+is\+Pending (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_evt_queue}{Evt\+Queue}} const \texorpdfstring{$\ast$}{*}const}]{me}{}\end{DoxyParamCaption})}
+
+
+
+Evemt queue create. 
+
+\Hypertarget{group___a_p_p___f_s_m_gab09810cb7c1ae4f5da98e823b0c909b1}\index{Finite State Machine@{Finite State Machine}!EvtQueue\_pend@{EvtQueue\_pend}}
+\index{EvtQueue\_pend@{EvtQueue\_pend}!Finite State Machine@{Finite State Machine}}
+\doxysubsubsubsection{\texorpdfstring{EvtQueue\_pend()}{EvtQueue\_pend()}}
+{\footnotesize\ttfamily \label{group___a_p_p___f_s_m_gab09810cb7c1ae4f5da98e823b0c909b1} 
+\doxymbox{\hyperlink{struct_event}{Event}} Evt\+Queue\+\_\+pend (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_evt_queue}{Evt\+Queue}} \texorpdfstring{$\ast$}{*}const}]{me}{}\end{DoxyParamCaption})}
+
+
+
+Evemt queue create. 
+
+\Hypertarget{group___a_p_p___f_s_m_gac4cfb74e148e8c7cab5b9cecf0c00a38}\index{Finite State Machine@{Finite State Machine}!EvtQueue\_post@{EvtQueue\_post}}
+\index{EvtQueue\_post@{EvtQueue\_post}!Finite State Machine@{Finite State Machine}}
+\doxysubsubsubsection{\texorpdfstring{EvtQueue\_post()}{EvtQueue\_post()}}
+{\footnotesize\ttfamily \label{group___a_p_p___f_s_m_gac4cfb74e148e8c7cab5b9cecf0c00a38} 
+void Evt\+Queue\+\_\+post (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_evt_queue}{Evt\+Queue}} \texorpdfstring{$\ast$}{*}const}]{me}{, }\item[{\doxymbox{\hyperlink{struct_event}{Event}} const \texorpdfstring{$\ast$}{*}const}]{e}{}\end{DoxyParamCaption})}
+
+
+
+Evemt queue create. 
+
+\Hypertarget{group___a_p_p___f_s_m_ga8354ce10690e8c946adee86febc3a183}\index{Finite State Machine@{Finite State Machine}!Fsm\_ctor@{Fsm\_ctor}}
+\index{Fsm\_ctor@{Fsm\_ctor}!Finite State Machine@{Finite State Machine}}
+\doxysubsubsubsection{\texorpdfstring{Fsm\_ctor()}{Fsm\_ctor()}}
+{\footnotesize\ttfamily \label{group___a_p_p___f_s_m_ga8354ce10690e8c946adee86febc3a183} 
+void Fsm\+\_\+ctor (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_fsm}{Fsm}} \texorpdfstring{$\ast$}{*}const}]{me}{, }\item[{\doxymbox{\hyperlink{group___a_p_p___f_s_m_ga080a87a8d9406212c4c40c878c5bf36b}{State\+Handler}}}]{initial}{}\end{DoxyParamCaption})}
+
+
+
+\doxylink{struct_fsm}{Fsm} constructer function. 
+
+\begin{DoxyNote}{Note}
+constructs FSM and sets state handler function 
+\end{DoxyNote}
+\Hypertarget{group___a_p_p___f_s_m_gacb40f808c7fe3dbe8d7b6819d6f77a94}\index{Finite State Machine@{Finite State Machine}!Fsm\_dispatch@{Fsm\_dispatch}}
+\index{Fsm\_dispatch@{Fsm\_dispatch}!Finite State Machine@{Finite State Machine}}
+\doxysubsubsubsection{\texorpdfstring{Fsm\_dispatch()}{Fsm\_dispatch()}}
+{\footnotesize\ttfamily \label{group___a_p_p___f_s_m_gacb40f808c7fe3dbe8d7b6819d6f77a94} 
+void Fsm\+\_\+dispatch (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_fsm}{Fsm}} \texorpdfstring{$\ast$}{*}const}]{me}{, }\item[{\doxymbox{\hyperlink{struct_event}{Event}} const \texorpdfstring{$\ast$}{*}const}]{e}{}\end{DoxyParamCaption})}
+
+
+
+\doxylink{struct_fsm}{Fsm} data structure. 
+
+\Hypertarget{group___a_p_p___f_s_m_ga503af3ee1874946bd85f9018737775ff}\index{Finite State Machine@{Finite State Machine}!Fsm\_init@{Fsm\_init}}
+\index{Fsm\_init@{Fsm\_init}!Finite State Machine@{Finite State Machine}}
+\doxysubsubsubsection{\texorpdfstring{Fsm\_init()}{Fsm\_init()}}
+{\footnotesize\ttfamily \label{group___a_p_p___f_s_m_ga503af3ee1874946bd85f9018737775ff} 
+void Fsm\+\_\+init (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_fsm}{Fsm}} \texorpdfstring{$\ast$}{*}const}]{me}{, }\item[{\doxymbox{\hyperlink{struct_event}{Event}} const \texorpdfstring{$\ast$}{*}const}]{e}{}\end{DoxyParamCaption})}
+
+
+
+\doxylink{struct_fsm}{Fsm} data structure. 
+

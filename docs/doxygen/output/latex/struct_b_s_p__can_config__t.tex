@@ -1,0 +1,67 @@
+\doxysection{BSP\+\_\+can\+Config\+\_\+t Struct Reference}
+\hypertarget{struct_b_s_p__can_config__t}{}\label{struct_b_s_p__can_config__t}\index{BSP\_canConfig\_t@{BSP\_canConfig\_t}}
+
+
+{\ttfamily \+\#include $<$bsp\+\_\+can.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{struct_b_s_p__can_config__t_a7ae7a2f9606b900b0604f99831cdd6a3}{bitrate}}
+\item 
+\doxymbox{\hyperlink{struct_b_s_p__can_mob_config__t}{BSP\+\_\+can\+Mob\+Config\+\_\+t}} const  \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{struct_b_s_p__can_config__t_a1b6c5af78fe6b8a6a3bf58ce09b744ac}{mobs}}
+\item 
+uint8\+\_\+t \doxymbox{\hyperlink{struct_b_s_p__can_config__t_af4ddcf0538d72e8a84fdfac71c3900ec}{mob\+Count}}
+\item 
+\doxymbox{\hyperlink{bsp__can_8h_a96096334940d8795fc0b7c9704c3d3cf}{BSP\+\_\+can\+Rx\+Cb\+\_\+t}} \doxymbox{\hyperlink{struct_b_s_p__can_config__t_ad744f8e24327b28ddf9dc85dc53eca78}{on\+Rx}}
+\item 
+\doxymbox{\hyperlink{bsp__can_8h_ab9a34f4869aadad1ec9c73360a962898}{BSP\+\_\+can\+Tx\+Done\+Cb\+\_\+t}} \doxymbox{\hyperlink{struct_b_s_p__can_config__t_adcc6f3348248ac2fff9102305fdc74f1}{on\+Tx\+Done}}
+\item 
+\doxymbox{\hyperlink{bsp__can_8h_aaedcbc281afca82501d9380bfc1ed762}{BSP\+\_\+can\+Error\+Cb\+\_\+t}} \doxymbox{\hyperlink{struct_b_s_p__can_config__t_aeb9e0c496c7d57ae59f61c8c3dc4868e}{on\+Error}}
+\end{DoxyCompactItemize}
+
+
+\label{struct_b_s_p__can_config__t_doc-variable-members}
+\Hypertarget{struct_b_s_p__can_config__t_doc-variable-members}
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_b_s_p__can_config__t_a7ae7a2f9606b900b0604f99831cdd6a3}\index{BSP\_canConfig\_t@{BSP\_canConfig\_t}!bitrate@{bitrate}}
+\index{bitrate@{bitrate}!BSP\_canConfig\_t@{BSP\_canConfig\_t}}
+\doxysubsubsection{\texorpdfstring{bitrate}{bitrate}}
+{\footnotesize\ttfamily \label{struct_b_s_p__can_config__t_a7ae7a2f9606b900b0604f99831cdd6a3} 
+uint32\+\_\+t BSP\+\_\+can\+Config\+\_\+t::\+bitrate}
+
+Bit rate in bit/\+s. \Hypertarget{struct_b_s_p__can_config__t_af4ddcf0538d72e8a84fdfac71c3900ec}\index{BSP\_canConfig\_t@{BSP\_canConfig\_t}!mobCount@{mobCount}}
+\index{mobCount@{mobCount}!BSP\_canConfig\_t@{BSP\_canConfig\_t}}
+\doxysubsubsection{\texorpdfstring{mobCount}{mobCount}}
+{\footnotesize\ttfamily \label{struct_b_s_p__can_config__t_af4ddcf0538d72e8a84fdfac71c3900ec} 
+uint8\+\_\+t BSP\+\_\+can\+Config\+\_\+t::\+mob\+Count}
+
+Number of entries in mobs. \Hypertarget{struct_b_s_p__can_config__t_a1b6c5af78fe6b8a6a3bf58ce09b744ac}\index{BSP\_canConfig\_t@{BSP\_canConfig\_t}!mobs@{mobs}}
+\index{mobs@{mobs}!BSP\_canConfig\_t@{BSP\_canConfig\_t}}
+\doxysubsubsection{\texorpdfstring{mobs}{mobs}}
+{\footnotesize\ttfamily \label{struct_b_s_p__can_config__t_a1b6c5af78fe6b8a6a3bf58ce09b744ac} 
+\doxymbox{\hyperlink{struct_b_s_p__can_mob_config__t}{BSP\+\_\+can\+Mob\+Config\+\_\+t}} const\texorpdfstring{$\ast$}{*} BSP\+\_\+can\+Config\+\_\+t::\+mobs}
+
+Table of MOb configurations. \Hypertarget{struct_b_s_p__can_config__t_aeb9e0c496c7d57ae59f61c8c3dc4868e}\index{BSP\_canConfig\_t@{BSP\_canConfig\_t}!onError@{onError}}
+\index{onError@{onError}!BSP\_canConfig\_t@{BSP\_canConfig\_t}}
+\doxysubsubsection{\texorpdfstring{onError}{onError}}
+{\footnotesize\ttfamily \label{struct_b_s_p__can_config__t_aeb9e0c496c7d57ae59f61c8c3dc4868e} 
+\doxymbox{\hyperlink{bsp__can_8h_aaedcbc281afca82501d9380bfc1ed762}{BSP\+\_\+can\+Error\+Cb\+\_\+t}} BSP\+\_\+can\+Config\+\_\+t::\+on\+Error}
+
+Error occurred, or NULL. \Hypertarget{struct_b_s_p__can_config__t_ad744f8e24327b28ddf9dc85dc53eca78}\index{BSP\_canConfig\_t@{BSP\_canConfig\_t}!onRx@{onRx}}
+\index{onRx@{onRx}!BSP\_canConfig\_t@{BSP\_canConfig\_t}}
+\doxysubsubsection{\texorpdfstring{onRx}{onRx}}
+{\footnotesize\ttfamily \label{struct_b_s_p__can_config__t_ad744f8e24327b28ddf9dc85dc53eca78} 
+\doxymbox{\hyperlink{bsp__can_8h_a96096334940d8795fc0b7c9704c3d3cf}{BSP\+\_\+can\+Rx\+Cb\+\_\+t}} BSP\+\_\+can\+Config\+\_\+t::\+on\+Rx}
+
+Frame received, or NULL. \Hypertarget{struct_b_s_p__can_config__t_adcc6f3348248ac2fff9102305fdc74f1}\index{BSP\_canConfig\_t@{BSP\_canConfig\_t}!onTxDone@{onTxDone}}
+\index{onTxDone@{onTxDone}!BSP\_canConfig\_t@{BSP\_canConfig\_t}}
+\doxysubsubsection{\texorpdfstring{onTxDone}{onTxDone}}
+{\footnotesize\ttfamily \label{struct_b_s_p__can_config__t_adcc6f3348248ac2fff9102305fdc74f1} 
+\doxymbox{\hyperlink{bsp__can_8h_ab9a34f4869aadad1ec9c73360a962898}{BSP\+\_\+can\+Tx\+Done\+Cb\+\_\+t}} BSP\+\_\+can\+Config\+\_\+t::\+on\+Tx\+Done}
+
+Frame sent, or NULL. 
+
+The documentation for this struct was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+bsp/\+megas64m1/\+include/\+\doxymbox{\hyperlink{bsp__can_8h}{bsp\+\_\+can.\+h}}\end{DoxyCompactItemize}

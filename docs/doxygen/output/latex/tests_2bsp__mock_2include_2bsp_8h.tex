@@ -1,0 +1,89 @@
+\doxysection{tests/\+bsp\+\_\+mock/\+include/\+bsp.h File Reference}
+\hypertarget{tests_2bsp__mock_2include_2bsp_8h}{}\label{tests_2bsp__mock_2include_2bsp_8h}\index{tests/bsp\_mock/include/bsp.h@{tests/bsp\_mock/include/bsp.h}}
+
+
+Replaces the real AVR bsp.\+h when building unit tests on the PC.  
+
+
+{\ttfamily \+\#include $<$stdint.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{tests_2bsp__mock_2include_2bsp_8h_ad0740f954a2011d919ad14afbacf64ff}{BSP\+\_\+disable\+Interrupts}} (void)
+\item 
+void \doxymbox{\hyperlink{tests_2bsp__mock_2include_2bsp_8h_abaabd5a5070d231fc28350df4639af2b}{BSP\+\_\+enable\+Interrupts}} (uint8\+\_\+t sreg)
+\item 
+void \doxymbox{\hyperlink{tests_2bsp__mock_2include_2bsp_8h_a1e2109032c95bf29bf10786ca91c0cc1}{Bsp\+Stub\+\_\+reset}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \doxymbox{\hyperlink{tests_2bsp__mock_2include_2bsp_8h_af9f788bfb1a11d4a5a22eb76dfb9d950}{SREG}}
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{tests_2bsp__mock_2include_2bsp_8h_a35ebc76832bb7336a50cd47b0782d5dc}{Bsp\+Stub\+\_\+disable\+Calls}}
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{tests_2bsp__mock_2include_2bsp_8h_a0c2d35c06fb3431bb98f88817445aae8}{Bsp\+Stub\+\_\+enable\+Calls}}
+\item 
+uint8\+\_\+t \doxymbox{\hyperlink{tests_2bsp__mock_2include_2bsp_8h_ad6106060a9e08a2f7c113c60e943960f}{Bsp\+Stub\+\_\+last\+Restored}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Replaces the real AVR bsp.\+h when building unit tests on the PC. 
+
+(HOST TEST STUB) 
+
+Provides a fake SREG and spies for \doxylink{tests_2bsp__mock_2include_2bsp_8h_ad0740f954a2011d919ad14afbacf64ff}{BSP\+\_\+disable\+Interrupts()} /\+ \doxylink{bsp_2megas64m1_2include_2bsp_8h_a3acf0a6be9bd59753f8d3dfe6fcd9f5d}{BSP\+\_\+enable\+Interrupts()} so tests can verify that critical sections are balanced and restore the saved interrupt state.
+
+Put this directory BEFORE the real bsp.\+h in the include path. 
+
+\label{tests_2bsp__mock_2include_2bsp_8h_doc-func-members}
+\Hypertarget{tests_2bsp__mock_2include_2bsp_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{tests_2bsp__mock_2include_2bsp_8h_ad0740f954a2011d919ad14afbacf64ff}\index{bsp.h@{bsp.h}!BSP\_disableInterrupts@{BSP\_disableInterrupts}}
+\index{BSP\_disableInterrupts@{BSP\_disableInterrupts}!bsp.h@{bsp.h}}
+\doxysubsubsection{\texorpdfstring{BSP\_disableInterrupts()}{BSP\_disableInterrupts()}}
+{\footnotesize\ttfamily \label{tests_2bsp__mock_2include_2bsp_8h_ad0740f954a2011d919ad14afbacf64ff} 
+void BSP\+\_\+disable\+Interrupts (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{tests_2bsp__mock_2include_2bsp_8h_abaabd5a5070d231fc28350df4639af2b}\index{bsp.h@{bsp.h}!BSP\_enableInterrupts@{BSP\_enableInterrupts}}
+\index{BSP\_enableInterrupts@{BSP\_enableInterrupts}!bsp.h@{bsp.h}}
+\doxysubsubsection{\texorpdfstring{BSP\_enableInterrupts()}{BSP\_enableInterrupts()}}
+{\footnotesize\ttfamily \label{tests_2bsp__mock_2include_2bsp_8h_abaabd5a5070d231fc28350df4639af2b} 
+void BSP\+\_\+enable\+Interrupts (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{sreg}{}\end{DoxyParamCaption})}
+
+\Hypertarget{tests_2bsp__mock_2include_2bsp_8h_a1e2109032c95bf29bf10786ca91c0cc1}\index{bsp.h@{bsp.h}!BspStub\_reset@{BspStub\_reset}}
+\index{BspStub\_reset@{BspStub\_reset}!bsp.h@{bsp.h}}
+\doxysubsubsection{\texorpdfstring{BspStub\_reset()}{BspStub\_reset()}}
+{\footnotesize\ttfamily \label{tests_2bsp__mock_2include_2bsp_8h_a1e2109032c95bf29bf10786ca91c0cc1} 
+void Bsp\+Stub\+\_\+reset (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+\label{tests_2bsp__mock_2include_2bsp_8h_doc-var-members}
+\Hypertarget{tests_2bsp__mock_2include_2bsp_8h_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{tests_2bsp__mock_2include_2bsp_8h_a35ebc76832bb7336a50cd47b0782d5dc}\index{bsp.h@{bsp.h}!BspStub\_disableCalls@{BspStub\_disableCalls}}
+\index{BspStub\_disableCalls@{BspStub\_disableCalls}!bsp.h@{bsp.h}}
+\doxysubsubsection{\texorpdfstring{BspStub\_disableCalls}{BspStub\_disableCalls}}
+{\footnotesize\ttfamily \label{tests_2bsp__mock_2include_2bsp_8h_a35ebc76832bb7336a50cd47b0782d5dc} 
+uint32\+\_\+t Bsp\+Stub\+\_\+disable\+Calls\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{tests_2bsp__mock_2include_2bsp_8h_a0c2d35c06fb3431bb98f88817445aae8}\index{bsp.h@{bsp.h}!BspStub\_enableCalls@{BspStub\_enableCalls}}
+\index{BspStub\_enableCalls@{BspStub\_enableCalls}!bsp.h@{bsp.h}}
+\doxysubsubsection{\texorpdfstring{BspStub\_enableCalls}{BspStub\_enableCalls}}
+{\footnotesize\ttfamily \label{tests_2bsp__mock_2include_2bsp_8h_a0c2d35c06fb3431bb98f88817445aae8} 
+uint32\+\_\+t Bsp\+Stub\+\_\+enable\+Calls\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{tests_2bsp__mock_2include_2bsp_8h_ad6106060a9e08a2f7c113c60e943960f}\index{bsp.h@{bsp.h}!BspStub\_lastRestored@{BspStub\_lastRestored}}
+\index{BspStub\_lastRestored@{BspStub\_lastRestored}!bsp.h@{bsp.h}}
+\doxysubsubsection{\texorpdfstring{BspStub\_lastRestored}{BspStub\_lastRestored}}
+{\footnotesize\ttfamily \label{tests_2bsp__mock_2include_2bsp_8h_ad6106060a9e08a2f7c113c60e943960f} 
+uint8\+\_\+t Bsp\+Stub\+\_\+last\+Restored\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{tests_2bsp__mock_2include_2bsp_8h_af9f788bfb1a11d4a5a22eb76dfb9d950}\index{bsp.h@{bsp.h}!SREG@{SREG}}
+\index{SREG@{SREG}!bsp.h@{bsp.h}}
+\doxysubsubsection{\texorpdfstring{SREG}{SREG}}
+{\footnotesize\ttfamily \label{tests_2bsp__mock_2include_2bsp_8h_af9f788bfb1a11d4a5a22eb76dfb9d950} 
+uint8\+\_\+t SREG\hspace{0.3cm}{\ttfamily [extern]}}
+

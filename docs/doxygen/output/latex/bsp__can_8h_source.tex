@@ -1,0 +1,352 @@
+\doxysection{bsp\+\_\+can.\+h}
+\hypertarget{bsp__can_8h_source}{}\label{bsp__can_8h_source}\index{bsp/megas64m1/include/bsp\_can.h@{bsp/megas64m1/include/bsp\_can.h}}
+\doxymbox{\hyperlink{bsp__can_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#ifndef\ BSP\_CAN\_H}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ BSP\_CAN\_H}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{bsp_2megas64m1_2include_2bsp_8h}{bsp.h}}"{}}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ @brief\ Maximum\ number\ of\ data\ bytes\ in\ one\ classic\ CAN\ frame.}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ BSP\_CAN\_MAXIMUM\_BYTE\ \ \ \ 8U}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ @brief\ CAN\ frame\ as\ seen\ by\ the\ application.}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *\ @details}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *\ Only\ 11-\/bit\ identifiers\ (CAN\ 2.0A)\ are\ supported.\ The\ identifier\ is}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ *\ stored\ as\ a\ plain\ number,\ not\ in\ the\ CANIDTx\ register\ layout.}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00037\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structcanframe}{canframe}}}
+\DoxyCodeLine{00038\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ uint16\_t\ \ \ \ \doxymbox{\hyperlink{structcanframe_a7a5b5f7219b7ed187ef93374895417c9}{IdentifierTag}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00040\ \ \ \ \ uint8\_t\ \ \ \ \ \doxymbox{\hyperlink{structcanframe_aa8b0257e6e1d5a0a63239e1162160a59}{dlc}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ uint8\_t\ \ \ \ \ \doxymbox{\hyperlink{structcanframe_a64d12f51e0f95b838b85480eb7f86884}{msg}}[\doxymbox{\hyperlink{bsp__can_8h_ad73cbdaca4d1886c6974f5c8c0da4976}{BSP\_CAN\_MAXIMUM\_BYTE}}];\ \ \ \ \ }
+\DoxyCodeLine{00042\ \}\doxymbox{\hyperlink{bsp__can_8h_a82652e7a82acafd4741d3e40bd717ba8}{BSP\_canFrame\_t}};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ *\ @brief\ Result\ of\ a\ send\ or\ receive\ call.}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00048\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00049\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \doxymbox{\hyperlink{bsp__can_8h_a9ef6c5ed52047d4b925f9c1f56eccb2ea83f18fe9f0d9a15c3d78075b7313f06f}{BSP\_CAN\_STATUS\_NONE}}\ =\ 0,\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00051\ \ \ \ \ \doxymbox{\hyperlink{bsp__can_8h_a9ef6c5ed52047d4b925f9c1f56eccb2ea95c2afb2299e4551a717e0f7bffcd6c3}{BSP\_CAN\_STATUS\_TX\_BUSY}},\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00052\ \ \ \ \ \doxymbox{\hyperlink{bsp__can_8h_a9ef6c5ed52047d4b925f9c1f56eccb2ea203d6216d98b0ac235564be8c1e90d61}{BSP\_CAN\_STATUS\_TX\_OKEY}},\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00053\ \ \ \ \ \doxymbox{\hyperlink{bsp__can_8h_a9ef6c5ed52047d4b925f9c1f56eccb2ea3749f837df7edd0b1353f7f62babf59d}{BSP\_CAN\_STATUS\_INVALID\_ARG}},\ \ \ \ \ \ \ }
+\DoxyCodeLine{00054\ \ \ \ \ \doxymbox{\hyperlink{bsp__can_8h_a9ef6c5ed52047d4b925f9c1f56eccb2ea6369d281c408e15092acd15e1643e801}{BSP\_CAN\_STATUS\_RX\_OKEY}}\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00055\ \}\doxymbox{\hyperlink{bsp__can_8h_a9ef6c5ed52047d4b925f9c1f56eccb2e}{BSP\_canStatus\_t}};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00059\ \textcolor{comment}{\ *\ @brief\ Message\ object\ (MOb)\ index\ of\ the\ ATmega64M1\ CAN\ controller.}}
+\DoxyCodeLine{00060\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00061\ \textcolor{comment}{\ *\ @details}}
+\DoxyCodeLine{00062\ \textcolor{comment}{\ *\ The\ values\ are\ plain\ indices\ 0..5,\ usable\ for\ tables\ and\ for\ bit\ masks}}
+\DoxyCodeLine{00063\ \textcolor{comment}{\ *\ in\ CANEN2,\ CANIE2\ and\ CANSIT2.\ The\ shift\ into\ CANPAGE\ (MOBNB\ field)\ is}}
+\DoxyCodeLine{00064\ \textcolor{comment}{\ *\ done\ inside\ the\ driver.\ BSP\_CAN\_MOB\_COUNT\ is\ not\ a\ real\ MOb.}}
+\DoxyCodeLine{00065\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00066\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00067\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \doxymbox{\hyperlink{bsp__can_8h_ab996bb9050a4bd1fdc80579d1e5df481a75271b5593b82ba39e23d25d8e07dd20}{BSP\_CAN\_MOB\_0}}\ =\ 0\ ,}
+\DoxyCodeLine{00069\ \ \ \ \ \doxymbox{\hyperlink{bsp__can_8h_ab996bb9050a4bd1fdc80579d1e5df481a1925a2809eed08af0d07e025c6d6bc0a}{BSP\_CAN\_MOB\_1}},}
+\DoxyCodeLine{00070\ \ \ \ \ \doxymbox{\hyperlink{bsp__can_8h_ab996bb9050a4bd1fdc80579d1e5df481ac297de455e00dae73668694c820d108f}{BSP\_CAN\_MOB\_2}},}
+\DoxyCodeLine{00071\ \ \ \ \ \doxymbox{\hyperlink{bsp__can_8h_ab996bb9050a4bd1fdc80579d1e5df481a5080c1b33bdaefc454bb60a817bca81f}{BSP\_CAN\_MOB\_3}},}
+\DoxyCodeLine{00072\ \ \ \ \ \doxymbox{\hyperlink{bsp__can_8h_ab996bb9050a4bd1fdc80579d1e5df481ab3c73307a2b4992e77b8adf237d82187}{BSP\_CAN\_MOB\_4}},}
+\DoxyCodeLine{00073\ \ \ \ \ \doxymbox{\hyperlink{bsp__can_8h_ab996bb9050a4bd1fdc80579d1e5df481ad225edbebaa7b9e690065670e7d6b2a3}{BSP\_CAN\_MOB\_5}},}
+\DoxyCodeLine{00074\ \ \ \ \ \doxymbox{\hyperlink{bsp__can_8h_ab996bb9050a4bd1fdc80579d1e5df481a2df4a1932c03186a47f0bd52c3acbce9}{BSP\_CAN\_MOB\_COUNT}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00075\ \}\ \doxymbox{\hyperlink{bsp__can_8h_ab996bb9050a4bd1fdc80579d1e5df481}{BSP\_canMobNumber\_t}};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00079\ \textcolor{comment}{\ *\ @brief\ Role\ of\ a\ MOb.}}
+\DoxyCodeLine{00080\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00081\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00082\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \doxymbox{\hyperlink{bsp__can_8h_a8c5d7714d35fbc12f9b071a56da12491ac2d0ce7c2d8e1d0692370e2d4fe6a69c}{BSP\_CAN\_COMM\_UNUSED}}\ =\ 0,\ \ \ \ }
+\DoxyCodeLine{00084\ \ \ \ \ \doxymbox{\hyperlink{bsp__can_8h_a8c5d7714d35fbc12f9b071a56da12491add56d89cab2566a19eb334af848e8781}{BSP\_CAN\_COMM\_RX}},\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00085\ \ \ \ \ \doxymbox{\hyperlink{bsp__can_8h_a8c5d7714d35fbc12f9b071a56da12491a13d878573f751b62dcfdfa6040990e74}{BSP\_CAN\_COMM\_TX}},\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00086\ \ \ \ \ \doxymbox{\hyperlink{bsp__can_8h_a8c5d7714d35fbc12f9b071a56da12491af7ebb8a24f5a932b8f4b1e13ee3ed315}{BSP\_CAN\_COMM\_FRAME\_BUFFER}}\ \ \ }
+\DoxyCodeLine{00087\ \}\ \doxymbox{\hyperlink{bsp__can_8h_a8c5d7714d35fbc12f9b071a56da12491}{BSP\_canCommType\_t}};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00091\ \textcolor{comment}{\ *\ @brief\ Configuration\ of\ one\ MOb,\ used\ in\ the\ application\ config\ table.}}
+\DoxyCodeLine{00092\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00093\ \textcolor{comment}{\ *\ @details}}
+\DoxyCodeLine{00094\ \textcolor{comment}{\ *\ For\ a\ TX\ MOb\ the\ identifier\ comes\ with\ each\ frame,\ so\ idTag,\ idMask\ and}}
+\DoxyCodeLine{00095\ \textcolor{comment}{\ *\ dlc\ are\ ignored.\ A\ received\ frame\ is\ accepted\ when\ all\ bits\ selected\ by}}
+\DoxyCodeLine{00096\ \textcolor{comment}{\ *\ idMask\ equal\ the\ same\ bits\ of\ idTag.}}
+\DoxyCodeLine{00097\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00098\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00099\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \doxymbox{\hyperlink{bsp__can_8h_ab996bb9050a4bd1fdc80579d1e5df481}{BSP\_canMobNumber\_t}}\ \ \doxymbox{\hyperlink{struct_b_s_p__can_mob_config__t_a06685e55484b7cb05b7c590a913984f4}{mob}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00101\ \ \ \ \ \doxymbox{\hyperlink{bsp__can_8h_a8c5d7714d35fbc12f9b071a56da12491}{BSP\_canCommType\_t}}\ \ \ \doxymbox{\hyperlink{struct_b_s_p__can_mob_config__t_a6e4b5bb04afece93ab2cbee402b50089}{commType}};\ \ \ }
+\DoxyCodeLine{00102\ \ \ \ \ uint16\_t\ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{struct_b_s_p__can_mob_config__t_a04b8e0f9bd69e0159204c931169500f3}{idTag}};\ \ \ \ \ \ }
+\DoxyCodeLine{00103\ \ \ \ \ uint16\_t\ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{struct_b_s_p__can_mob_config__t_aa6e29d6b69c22918bdad4bff12a893c6}{idMask}};\ \ \ \ \ }
+\DoxyCodeLine{00104\ \ \ \ \ uint8\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{struct_b_s_p__can_mob_config__t_a4093f5a1c310e97e6520d166295f8ab8}{dlc}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00105\ \}\ \doxymbox{\hyperlink{struct_b_s_p__can_mob_config__t}{BSP\_canMobConfig\_t}};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00109\ \textcolor{comment}{\ *\ @brief\ Bit\ mask\ of\ CAN\ errors,\ one\ vocabulary\ for\ MOb\ and\ general\ errors.}}
+\DoxyCodeLine{00110\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00111\ \textcolor{comment}{\ *\ @details}}
+\DoxyCodeLine{00112\ \textcolor{comment}{\ *\ Combination\ of\ the\ BSP\_CAN\_EF\_xxx\ flags\ below.\ Several\ errors\ can\ be}}
+\DoxyCodeLine{00113\ \textcolor{comment}{\ *\ reported\ at\ once.}}
+\DoxyCodeLine{00114\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00115\ \textcolor{keyword}{typedef}\ uint8\_t\ \doxymbox{\hyperlink{bsp__can_8h_a57e21e83b1dce0d49f835d0863ffc71d}{BSP\_canErrors\_t}};}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#define\ BSP\_CAN\_EF\_BIT\ \ \ \ \ \ \ (1U\ <<\ 0)\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#define\ BSP\_CAN\_EF\_STUFF\ \ \ \ \ (1U\ <<\ 1)\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#define\ BSP\_CAN\_EF\_CRC\ \ \ \ \ \ \ (1U\ <<\ 2)\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#define\ BSP\_CAN\_EF\_FORM\ \ \ \ \ \ (1U\ <<\ 3)\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#define\ BSP\_CAN\_EF\_ACK\ \ \ \ \ \ \ (1U\ <<\ 4)\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#define\ BSP\_CAN\_EF\_BUS\_OFF\ \ \ (1U\ <<\ 5)\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#define\ BSP\_CAN\_EF\_OVERRUN\ \ \ (1U\ <<\ 6)\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00127\ \textcolor{comment}{\ *\ @brief\ Callback\ for\ a\ received\ frame.}}
+\DoxyCodeLine{00128\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00129\ \textcolor{comment}{\ *\ @param\ mob\ The\ MOb\ that\ received\ the\ frame.}}
+\DoxyCodeLine{00130\ \textcolor{comment}{\ *\ @param\ f\ \ \ The\ received\ frame,\ valid\ only\ during\ the\ call.}}
+\DoxyCodeLine{00131\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00132\ \textcolor{comment}{\ *\ @details}}
+\DoxyCodeLine{00133\ \textcolor{comment}{\ *\ Called\ from\ the\ CAN\ interrupt.\ Keep\ it\ short\ and\ non-\/blocking.}}
+\DoxyCodeLine{00134\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00135\ \textcolor{keyword}{typedef}\ void\ (*\doxymbox{\hyperlink{bsp__can_8h_a96096334940d8795fc0b7c9704c3d3cf}{BSP\_canRxCb\_t}})(\doxymbox{\hyperlink{bsp__can_8h_ab996bb9050a4bd1fdc80579d1e5df481}{BSP\_canMobNumber\_t}}\ mob,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{bsp__can_8h_a82652e7a82acafd4741d3e40bd717ba8}{BSP\_canFrame\_t}}\ *f);}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00139\ \textcolor{comment}{\ *\ @brief\ Callback\ for\ a\ finished\ transmission\ (TXOK).}}
+\DoxyCodeLine{00140\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00141\ \textcolor{comment}{\ *\ @param\ mob\ The\ MOb\ that\ sent\ the\ frame.}}
+\DoxyCodeLine{00142\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00143\ \textcolor{comment}{\ *\ @details}}
+\DoxyCodeLine{00144\ \textcolor{comment}{\ *\ Called\ from\ the\ CAN\ interrupt.\ Keep\ it\ short\ and\ non-\/blocking.}}
+\DoxyCodeLine{00145\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00146\ \textcolor{keyword}{typedef}\ void\ (*\doxymbox{\hyperlink{bsp__can_8h_ab9a34f4869aadad1ec9c73360a962898}{BSP\_canTxDoneCb\_t}})(\doxymbox{\hyperlink{bsp__can_8h_ab996bb9050a4bd1fdc80579d1e5df481}{BSP\_canMobNumber\_t}}\ mob);}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00150\ \textcolor{comment}{\ *\ @brief\ Callback\ for\ CAN\ errors.}}
+\DoxyCodeLine{00151\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00152\ \textcolor{comment}{\ *\ @param\ mob\ \ \ \ The\ affected\ MOb,\ or\ BSP\_CAN\_MOB\_COUNT\ for\ a\ general\ error.}}
+\DoxyCodeLine{00153\ \textcolor{comment}{\ *\ @param\ errors\ Combination\ of\ BSP\_CAN\_EF\_xxx\ flags.}}
+\DoxyCodeLine{00154\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00155\ \textcolor{comment}{\ *\ @details}}
+\DoxyCodeLine{00156\ \textcolor{comment}{\ *\ Called\ from\ the\ CAN\ interrupt.\ Keep\ it\ short\ and\ non-\/blocking.}}
+\DoxyCodeLine{00157\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00158\ \textcolor{keyword}{typedef}\ void\ (*\doxymbox{\hyperlink{bsp__can_8h_aaedcbc281afca82501d9380bfc1ed762}{BSP\_canErrorCb\_t}})(\doxymbox{\hyperlink{bsp__can_8h_ab996bb9050a4bd1fdc80579d1e5df481}{BSP\_canMobNumber\_t}}\ mob,\ \doxymbox{\hyperlink{bsp__can_8h_a57e21e83b1dce0d49f835d0863ffc71d}{BSP\_canErrors\_t}}\ errors);}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00162\ \textcolor{comment}{\ *\ @brief\ Driver\ configuration\ passed\ to\ BSP\_canInit().}}
+\DoxyCodeLine{00163\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00164\ \textcolor{comment}{\ *\ @details}}
+\DoxyCodeLine{00165\ \textcolor{comment}{\ *\ The\ driver\ keeps\ the\ pointer,\ so\ the\ structure\ and\ the\ MOb\ table\ must}}
+\DoxyCodeLine{00166\ \textcolor{comment}{\ *\ stay\ valid\ for\ the\ whole\ run\ time\ (declare\ them\ static\ const).\ The}}
+\DoxyCodeLine{00167\ \textcolor{comment}{\ *\ callbacks\ are\ optional\ and\ may\ be\ NULL.}}
+\DoxyCodeLine{00168\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00169\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00170\ \{}
+\DoxyCodeLine{00171\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{struct_b_s_p__can_config__t_a7ae7a2f9606b900b0604f99831cdd6a3}{bitrate}};\ \ \ \ \ \ }
+\DoxyCodeLine{00172\ \ \ \ \ \doxymbox{\hyperlink{struct_b_s_p__can_mob_config__t}{BSP\_canMobConfig\_t}}\ \textcolor{keyword}{const}\ *\ \doxymbox{\hyperlink{struct_b_s_p__can_config__t_a1b6c5af78fe6b8a6a3bf58ce09b744ac}{mobs}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00173\ \ \ \ \ uint8\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{struct_b_s_p__can_config__t_af4ddcf0538d72e8a84fdfac71c3900ec}{mobCount}};\ \ \ \ \ }
+\DoxyCodeLine{00174\ \ \ \ \ \doxymbox{\hyperlink{bsp__can_8h_a96096334940d8795fc0b7c9704c3d3cf}{BSP\_canRxCb\_t}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{struct_b_s_p__can_config__t_ad744f8e24327b28ddf9dc85dc53eca78}{onRx}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00175\ \ \ \ \ \doxymbox{\hyperlink{bsp__can_8h_ab9a34f4869aadad1ec9c73360a962898}{BSP\_canTxDoneCb\_t}}\ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{struct_b_s_p__can_config__t_adcc6f3348248ac2fff9102305fdc74f1}{onTxDone}};\ \ \ \ \ }
+\DoxyCodeLine{00176\ \ \ \ \ \doxymbox{\hyperlink{bsp__can_8h_aaedcbc281afca82501d9380bfc1ed762}{BSP\_canErrorCb\_t}}\ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{struct_b_s_p__can_config__t_aeb9e0c496c7d57ae59f61c8c3dc4868e}{onError}};\ \ \ \ \ \ }
+\DoxyCodeLine{00177\ \}\ \doxymbox{\hyperlink{struct_b_s_p__can_config__t}{BSP\_canConfig\_t}};}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00181\ \textcolor{comment}{\ *\ @brief\ Initializes\ and\ starts\ the\ CAN\ controller.}}
+\DoxyCodeLine{00182\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00183\ \textcolor{comment}{\ *\ @param\ cfg\ Driver\ configuration,\ must\ stay\ valid\ after\ the\ call.}}
+\DoxyCodeLine{00184\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00185\ \textcolor{comment}{\ *\ @details}}
+\DoxyCodeLine{00186\ \textcolor{comment}{\ *\ Resets\ the\ controller,\ clears\ all\ MObs,\ sets\ the\ bit\ timing,\ configures}}
+\DoxyCodeLine{00187\ \textcolor{comment}{\ *\ the\ MObs\ from\ the\ table\ and\ arms\ the\ RX\ MObs.\ It\ then\ enables\ the}}
+\DoxyCodeLine{00188\ \textcolor{comment}{\ *\ interrupts\ of\ the\ used\ MObs\ and\ enables\ the\ controller.\ Blocks\ until}}
+\DoxyCodeLine{00189\ \textcolor{comment}{\ *\ the\ controller\ has\ synchronized\ to\ the\ bus\ (11\ recessive\ bits).}}
+\DoxyCodeLine{00190\ \textcolor{comment}{\ *\ Global\ interrupts\ must\ be\ enabled\ by\ the\ caller\ afterwards.}}
+\DoxyCodeLine{00191\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00192\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{bsp__can_8h_ab082b1311418c19376c5e1ddedfca911}{BSP\_canInit}}(\doxymbox{\hyperlink{struct_b_s_p__can_config__t}{BSP\_canConfig\_t}}\ \textcolor{keyword}{const}\ *\ cfg);}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00196\ \textcolor{comment}{\ *\ @brief\ Handles\ the\ CAN\ interrupt.}}
+\DoxyCodeLine{00197\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00198\ \textcolor{comment}{\ *\ @details}}
+\DoxyCodeLine{00199\ \textcolor{comment}{\ *\ Called\ from\ the\ CAN\_INT\ vector.\ Clears\ the\ general\ interrupt\ flags,}}
+\DoxyCodeLine{00200\ \textcolor{comment}{\ *\ reports\ general\ errors,\ then\ serves\ every\ MOb\ with\ a\ pending\ interrupt:}}
+\DoxyCodeLine{00201\ \textcolor{comment}{\ *\ a\ received\ frame\ is\ read\ and\ passed\ to\ onRx\ and\ the\ RX\ MOb\ is\ re-\/armed,}}
+\DoxyCodeLine{00202\ \textcolor{comment}{\ *\ a\ finished\ transmission\ is\ passed\ to\ onTxDone.\ Do\ not\ call\ from}}
+\DoxyCodeLine{00203\ \textcolor{comment}{\ *\ application\ code.}}
+\DoxyCodeLine{00204\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00205\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{bsp__can_8h_a9d97c82bafbe5e26d90909ebc9ceb073}{BSP\_canISRHandler}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00209\ \textcolor{comment}{\ *\ @brief\ Sets\ the\ CAN\ bit\ timing\ registers.}}
+\DoxyCodeLine{00210\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00211\ \textcolor{comment}{\ *\ @details}}
+\DoxyCodeLine{00212\ \textcolor{comment}{\ *\ Uses\ fixed\ values\ for\ 250\ kbit/s\ at\ 8\ MHz\ (BRP\ =\ 3,\ 8\ time\ quanta\ per}}
+\DoxyCodeLine{00213\ \textcolor{comment}{\ *\ bit,\ sample\ point\ enabled).\ The\ bitrate\ field\ of\ BSP\_canConfig\_t\ is\ not}}
+\DoxyCodeLine{00214\ \textcolor{comment}{\ *\ evaluated\ yet.}}
+\DoxyCodeLine{00215\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00216\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{bsp__can_8h_a02681f40efbedffd15a18ffefb0780a1}{BSP\_canBaudRateSet}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00220\ \textcolor{comment}{\ *\ @brief\ Enables\ the\ CAN\ controller\ and\ waits\ for\ bus\ synchronization.}}
+\DoxyCodeLine{00221\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00222\ \textcolor{comment}{\ *\ @details}}
+\DoxyCodeLine{00223\ \textcolor{comment}{\ *\ Sets\ ENASTB\ and\ waits\ for\ the\ ENFG\ flag.\ The\ wait\ is\ not\ bounded,\ so\ the}}
+\DoxyCodeLine{00224\ \textcolor{comment}{\ *\ call\ hangs\ if\ the\ bus\ never\ becomes\ idle.}}
+\DoxyCodeLine{00225\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00226\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{bsp__can_8h_ac4d29fb68d1d9192786bbdc54a0add89}{BSP\_canStart}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00230\ \textcolor{comment}{\ *\ @brief\ Requests\ a\ software\ reset\ of\ the\ CAN\ controller.}}
+\DoxyCodeLine{00231\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00232\ \textcolor{comment}{\ *\ @details}}
+\DoxyCodeLine{00233\ \textcolor{comment}{\ *\ Waits\ until\ no\ transmission\ or\ reception\ is\ in\ progress,\ then\ sets\ SWRES.}}
+\DoxyCodeLine{00234\ \textcolor{comment}{\ *\ The\ wait\ is\ not\ bounded.}}
+\DoxyCodeLine{00235\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00236\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{bsp__can_8h_ae86bc2d7469a1a87715fed8406f58e49}{BSP\_canSwReset}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00240\ \textcolor{comment}{\ *\ @brief\ Clears\ the\ status,\ control,\ identifier\ and\ mask\ registers\ of\ all\ MObs.}}
+\DoxyCodeLine{00241\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00242\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{bsp__can_8h_afa6e541e9e352ebdd6493fb47c2da596}{BSP\_canClearMObs}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00246\ \textcolor{comment}{\ *\ @brief\ Configures\ one\ MOb\ and\ stores\ its\ role\ in\ the\ driver\ table.}}
+\DoxyCodeLine{00247\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00248\ \textcolor{comment}{\ *\ @param\ mobNmb\ \ \ \ \ \ MOb\ to\ configure.}}
+\DoxyCodeLine{00249\ \textcolor{comment}{\ *\ @param\ commType\ \ \ \ Role\ of\ the\ MOb.}}
+\DoxyCodeLine{00250\ \textcolor{comment}{\ *\ @param\ IdentifierTag\ \ 11-\/bit\ filter\ tag.}}
+\DoxyCodeLine{00251\ \textcolor{comment}{\ *\ @param\ IdentifierMask\ 11-\/bit\ filter\ mask,\ 1\ =\ bit\ is\ compared.}}
+\DoxyCodeLine{00252\ \textcolor{comment}{\ *\ @param\ dlc\ \ \ \ \ \ \ \ \ Maximum\ data\ length\ for\ reception\ (0..8).}}
+\DoxyCodeLine{00253\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00254\ \textcolor{comment}{\ *\ @details}}
+\DoxyCodeLine{00255\ \textcolor{comment}{\ *\ Disables\ the\ MOb,\ clears\ its\ status\ and\ writes\ the\ identifier\ tag\ and}}
+\DoxyCodeLine{00256\ \textcolor{comment}{\ *\ mask\ (the\ IDE\ bit\ is\ always\ compared).\ The\ MOb\ is\ not\ armed,\ call}}
+\DoxyCodeLine{00257\ \textcolor{comment}{\ *\ BSP\_canMObEnable()\ for\ that.\ Call\ this\ function\ again\ after\ any\ change\ of}}
+\DoxyCodeLine{00258\ \textcolor{comment}{\ *\ role\ or\ filter,\ otherwise\ the\ driver\ keeps\ using\ the\ old\ configuration.}}
+\DoxyCodeLine{00259\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00260\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{bsp__can_8h_a6741db94dec6c649655c40076608dace}{BSP\_canMObConfigure}}(\ \doxymbox{\hyperlink{bsp__can_8h_ab996bb9050a4bd1fdc80579d1e5df481}{BSP\_canMobNumber\_t}}\ mobNmb\ ,}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{bsp__can_8h_a8c5d7714d35fbc12f9b071a56da12491}{BSP\_canCommType\_t}}\ commType,}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ IdentifierTag\ ,}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ IdentifierMask,}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ dlc\ \ );}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00268\ \textcolor{comment}{\ *\ @brief\ Arms\ a\ MOb\ according\ to\ its\ stored\ role\ and\ DLC.}}
+\DoxyCodeLine{00269\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00270\ \textcolor{comment}{\ *\ @param\ mobNmb\ MOb\ to\ arm.}}
+\DoxyCodeLine{00271\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00272\ \textcolor{comment}{\ *\ @details}}
+\DoxyCodeLine{00273\ \textcolor{comment}{\ *\ Writes\ CANCDMOB\ (CONMOB\ bits\ and\ DLC).\ The\ identifier\ tag\ and\ mask\ are}}
+\DoxyCodeLine{00274\ \textcolor{comment}{\ *\ kept\ by\ the\ hardware\ and\ are\ not\ rewritten.}}
+\DoxyCodeLine{00275\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00276\ \textcolor{comment}{\ *\ @note\ This\ function\ does\ not\ select\ the\ MOb.\ CANPAGE\ must\ already\ point}}
+\DoxyCodeLine{00277\ \textcolor{comment}{\ *\ to\ mobNmb,\ otherwise\ the\ wrong\ MOb\ is\ armed.}}
+\DoxyCodeLine{00278\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00279\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{bsp__can_8h_a8644870de090e702706807a3d6f2cf0f}{BSP\_canMObEnable}}(\doxymbox{\hyperlink{bsp__can_8h_ab996bb9050a4bd1fdc80579d1e5df481}{BSP\_canMobNumber\_t}}\ mobNmb);}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00282\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00283\ \textcolor{comment}{\ *\ @brief\ Disables\ a\ MOb.}}
+\DoxyCodeLine{00284\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00285\ \textcolor{comment}{\ *\ @param\ mobNmb\ MOb\ to\ disable.}}
+\DoxyCodeLine{00286\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00287\ \textcolor{comment}{\ *\ @details}}
+\DoxyCodeLine{00288\ \textcolor{comment}{\ *\ Selects\ the\ MOb\ and\ clears\ CONMOB.\ A\ running\ transfer\ is\ aborted.}}
+\DoxyCodeLine{00289\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00290\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{bsp__can_8h_af8869303fb12108a49b3929d3db15683}{BSP\_canMObDisable}}(\doxymbox{\hyperlink{bsp__can_8h_ab996bb9050a4bd1fdc80579d1e5df481}{BSP\_canMobNumber\_t}}\ mobNmb);}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00294\ \textcolor{comment}{\ *\ @brief\ Reads\ the\ 11-\/bit\ identifier\ of\ the\ currently\ selected\ MOb.}}
+\DoxyCodeLine{00295\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00296\ \textcolor{comment}{\ *\ @return\ The\ identifier\ from\ CANIDT1/CANIDT2.}}
+\DoxyCodeLine{00297\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00298\ \textcolor{comment}{\ *\ @details}}
+\DoxyCodeLine{00299\ \textcolor{comment}{\ *\ After\ a\ reception\ the\ hardware\ writes\ the\ received\ identifier\ into}}
+\DoxyCodeLine{00300\ \textcolor{comment}{\ *\ CANIDT,\ so\ this\ returns\ the\ identifier\ of\ the\ received\ frame.}}
+\DoxyCodeLine{00301\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{00302\ \textcolor{comment}{\ *\ @note\ CANPAGE\ must\ already\ point\ to\ the\ MOb\ that\ requested\ to\ see\ its\ IDT}}
+\DoxyCodeLine{00303\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00304\ uint16\_t\ \doxymbox{\hyperlink{bsp__can_8h_a10cf6f526848e0c3b618df5419fd89d5}{BSP\_canGetIdentifierTag}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00307\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00308\ \textcolor{comment}{\ *\ @brief\ Reads\ the\ transmit\ error\ counter.}}
+\DoxyCodeLine{00309\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00310\ \textcolor{comment}{\ *\ @return\ Value\ of\ CANTEC.}}
+\DoxyCodeLine{00311\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{00312\ \textcolor{comment}{\ *\ @note\ CANPAGE\ must\ already\ point\ to\ the\ MOb\ that\ requested\ to\ see\ its\ TEC}}
+\DoxyCodeLine{00313\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00314\ uint8\_t\ \doxymbox{\hyperlink{bsp__can_8h_a807fb4bc65d32244e6a3f02f5e9fb00d}{BSP\_canGetTEC}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00315\ }
+\DoxyCodeLine{00316\ }
+\DoxyCodeLine{00317\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00318\ \textcolor{comment}{\ *\ @brief\ Reads\ the\ receive\ error\ counter.}}
+\DoxyCodeLine{00319\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00320\ \textcolor{comment}{\ *\ @return\ Value\ of\ CANREC.}}
+\DoxyCodeLine{00321\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{00322\ \textcolor{comment}{\ *\ @note\ CANPAGE\ must\ already\ point\ to\ the\ MOb\ that\ requested\ to\ see\ its\ REC}}
+\DoxyCodeLine{00323\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00324\ uint8\_t\ \doxymbox{\hyperlink{bsp__can_8h_a7a83608566ae929a45a3d1b785874f6f}{BSP\_canGetREC}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00327\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00328\ \textcolor{comment}{\ *\ @brief\ Copies\ the\ received\ frame\ out\ of\ the\ currently\ selected\ MOb.}}
+\DoxyCodeLine{00329\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00330\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00331\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00332\ \textcolor{comment}{\ *\ @details}}
+\DoxyCodeLine{00333\ \textcolor{comment}{\ *\ Reads\ DLC,\ data\ bytes\ and\ identifier.\ It\ does\ not\ check}}
+\DoxyCodeLine{00334\ \textcolor{comment}{\ *\ the\ MOb\ status,\ re-\/arm\ the\ MOb\ or\ clear\ flags.\ Called\ by\ the\ ISR\ after}}
+\DoxyCodeLine{00335\ \textcolor{comment}{\ *\ RXOK.}}
+\DoxyCodeLine{00336\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00337\ \textcolor{comment}{\ *\ @note\ CANPAGE\ must\ already\ point\ to\ the\ MOb\ that\ received\ the\ frame.}}
+\DoxyCodeLine{00338\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00339\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{bsp__can_8h_a1cbfbfe1a4ae4a83050902c1a5713349}{BSP\_canReceive}}(\doxymbox{\hyperlink{bsp__can_8h_a82652e7a82acafd4741d3e40bd717ba8}{BSP\_canFrame\_t}}\ *\ \textcolor{keyword}{const}\ f);}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00341\ }
+\DoxyCodeLine{00342\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00343\ \textcolor{comment}{\ *\ @brief\ Sends\ a\ frame\ through\ a\ TX\ MOb.}}
+\DoxyCodeLine{00344\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00345\ \textcolor{comment}{\ *\ @param\ f\ \ \ Frame\ to\ send,\ must\ not\ be\ NULL.}}
+\DoxyCodeLine{00346\ \textcolor{comment}{\ *\ @param\ mob\ TX\ MOb\ to\ use.}}
+\DoxyCodeLine{00347\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00348\ \textcolor{comment}{\ *\ @return\ -\/\ BSP\_CAN\_STATUS\_TX\_OKEY\ if\ the\ frame\ was\ handed\ to\ the\ controller,\ }}
+\DoxyCodeLine{00349\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ -\/\ BSP\_CAN\_STATUS\_TX\_BUSY\ if\ the\ MOb\ is\ still\ armed.}}
+\DoxyCodeLine{00350\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00351\ \textcolor{comment}{\ *\ @details}}
+\DoxyCodeLine{00352\ \textcolor{comment}{\ *\ Runs\ with\ interrupts\ disabled.\ If\ the\ MOb\ is\ idle,\ it\ writes\ data\ and}}
+\DoxyCodeLine{00353\ \textcolor{comment}{\ *\ identifier\ and\ arms\ the\ MOb\ with\ the\ DLC\ of\ the\ frame.\ Completion\ is}}
+\DoxyCodeLine{00354\ \textcolor{comment}{\ *\ reported\ through\ onTxDone.\ The\ MOb\ must\ be\ configured\ as}}
+\DoxyCodeLine{00355\ \textcolor{comment}{\ *\ BSP\_CAN\_COMM\_TX.}}
+\DoxyCodeLine{00356\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00357\ \doxymbox{\hyperlink{bsp__can_8h_a9ef6c5ed52047d4b925f9c1f56eccb2e}{BSP\_canStatus\_t}}\ \doxymbox{\hyperlink{bsp__can_8h_a56bf4482691dd597d526f6f7a2c83dcd}{BSP\_canSend}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{bsp__can_8h_a82652e7a82acafd4741d3e40bd717ba8}{BSP\_canFrame\_t}}\ *\ f,\ \doxymbox{\hyperlink{bsp__can_8h_ab996bb9050a4bd1fdc80579d1e5df481}{BSP\_canMobNumber\_t}}\ mob);}
+\DoxyCodeLine{00358\ }
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00360\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ BSP\_CAN\_H}}
+
+\end{DoxyCode}

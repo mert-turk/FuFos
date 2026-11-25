@@ -1,0 +1,167 @@
+\doxysection{tests/\+test\+\_\+fsm.c File Reference}
+\hypertarget{test__fsm_8c}{}\label{test__fsm_8c}\index{tests/test\_fsm.c@{tests/test\_fsm.c}}
+
+
+Unity unit tests for the FSM and the event queue (\doxylink{fsm_8c}{fsm.\+c} /\+ \doxylink{fsm_8h}{fsm.\+h}).  
+
+
+{\ttfamily \+\#include "{}unity.\+h"{}}\newline
+{\ttfamily \+\#include "{}fsm.\+h"{}}\newline
+{\ttfamily \+\#include "{}bsp.\+h"{}}\newline
+{\ttfamily \+\#include $<$setjmp.\+h$>$}\newline
+{\ttfamily \+\#include $<$stddef.\+h$>$}\newline
+{\ttfamily \+\#include $<$string.\+h$>$}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_log_entry__t}{Log\+Entry\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{test__fsm_8c_aace8ce64a4c4a6b3a30e8de878b2e856}{NULL\+\_\+\+SIG}}~(0x\+FFFFU)   /\+\texorpdfstring{$\ast$}{*} logged when a handler gets a NULL event \texorpdfstring{$\ast$}{*}/\+
+\item 
+\+\#define \doxymbox{\hyperlink{test__fsm_8c_a609a6de2c7ff0a69b55d3b3c5e260cc5}{LOG\+\_\+\+SIZE}}~(16U)
+\item 
+\+\#define \doxymbox{\hyperlink{test__fsm_8c_a07c5dd6a63f85102afff94734b066db6}{ST\+\_\+\+INIT}}~((uint8\+\_\+t)\textquotesingle{}I\textquotesingle{})
+\item 
+\+\#define \doxymbox{\hyperlink{test__fsm_8c_a004772299be46aad2daf1626db058230}{ST\+\_\+A}}~((uint8\+\_\+t)\textquotesingle{}A\textquotesingle{})
+\item 
+\+\#define \doxymbox{\hyperlink{test__fsm_8c_afb33db927f77e4d6ca90d88964d461de}{ST\+\_\+B}}~((uint8\+\_\+t)\textquotesingle{}B\textquotesingle{})
+\item 
+\+\#define \doxymbox{\hyperlink{test__fsm_8c_a4f787a77625847fa0c25788e35ea4fff}{RUN\+\_\+\+FSM\+\_\+\+TEST}}(t)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \newline
+\doxymbox{\hyperlink{test__fsm_8c_a30c046e8e84567edd2dd3823bd03c4c7ac088b3432d3986b27bb723f5e812b860}{GO\+\_\+\+B\+\_\+\+SIG}} = USER\+\_\+\+SIG
+, \doxymbox{\hyperlink{test__fsm_8c_a30c046e8e84567edd2dd3823bd03c4c7abaf337487b9cf22a97f114cf9d97e7cb}{GO\+\_\+\+A\+\_\+\+SIG}}
+, \doxymbox{\hyperlink{test__fsm_8c_a30c046e8e84567edd2dd3823bd03c4c7a0b2b394972d24901562d8cc416731fa8}{SELF\+\_\+\+SIG}}
+, \doxymbox{\hyperlink{test__fsm_8c_a30c046e8e84567edd2dd3823bd03c4c7a1f2da72c7f1d17f16994d484b0988482}{HANDLED\+\_\+\+SIG}}
+, \newline
+\doxymbox{\hyperlink{test__fsm_8c_a30c046e8e84567edd2dd3823bd03c4c7a88d7faebd8c9a1d3f5f6d973b774a57c}{IGNORED\+\_\+\+SIG}}
+, \doxymbox{\hyperlink{test__fsm_8c_a30c046e8e84567edd2dd3823bd03c4c7a0c1cab2be17e2d37e5299ed03b313850}{STOP\+\_\+\+SIG}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{test__fsm_8c_aee90e52b7ee918df942a1a11ef4e9a65}{run\+\_\+fsm\+\_\+tests}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Unity unit tests for the FSM and the event queue (\doxylink{fsm_8c}{fsm.\+c} /\+ \doxylink{fsm_8h}{fsm.\+h}). 
+
+Test strategy
+\begin{DoxyItemize}
+\item Two dummy states (stateA, stateB) and an initial pseudo-\/state log every call (state id + signal). Tests then compare the call log with the expected sequence, e.\+g. a transition A -\/\texorpdfstring{$>$}{>} B must give A(event), A(\+EXIT), B(\+ENTRY).
+\item bsp.\+h is replaced by a host stub (see stubs/\+) so the queue can be tested without AVR hardware. The stub counts interrupt disable/\+enable calls and records the restored SREG value.
+\item \doxylink{group___a_p_p___f_s_m_ga9ada9a864987666e9e3332d539cc0de7}{event\+Loop()} never returns, so a state handler leaves it with longjmp() when it receives STOP\+\_\+\+SIG.
+\end{DoxyItemize}
+
+Not tested:\+ \doxylink{group___a_p_p___f_s_m_gab09810cb7c1ae4f5da98e823b0c909b1}{Evt\+Queue\+\_\+pend()} on an EMPTY queue. It busy-\/waits forever and needs a second thread/\+\+ISR to be released. 
+
+\label{test__fsm_8c_doc-define-members}
+\Hypertarget{test__fsm_8c_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{test__fsm_8c_a609a6de2c7ff0a69b55d3b3c5e260cc5}\index{test\_fsm.c@{test\_fsm.c}!LOG\_SIZE@{LOG\_SIZE}}
+\index{LOG\_SIZE@{LOG\_SIZE}!test\_fsm.c@{test\_fsm.c}}
+\doxysubsubsection{\texorpdfstring{LOG\_SIZE}{LOG\_SIZE}}
+{\footnotesize\ttfamily \label{test__fsm_8c_a609a6de2c7ff0a69b55d3b3c5e260cc5} 
+\+\#define LOG\+\_\+\+SIZE~(16U)}
+
+\Hypertarget{test__fsm_8c_aace8ce64a4c4a6b3a30e8de878b2e856}\index{test\_fsm.c@{test\_fsm.c}!NULL\_SIG@{NULL\_SIG}}
+\index{NULL\_SIG@{NULL\_SIG}!test\_fsm.c@{test\_fsm.c}}
+\doxysubsubsection{\texorpdfstring{NULL\_SIG}{NULL\_SIG}}
+{\footnotesize\ttfamily \label{test__fsm_8c_aace8ce64a4c4a6b3a30e8de878b2e856} 
+\+\#define NULL\+\_\+\+SIG~(0x\+FFFFU)   /\+\texorpdfstring{$\ast$}{*} logged when a handler gets a NULL event \texorpdfstring{$\ast$}{*}/\+}
+
+\Hypertarget{test__fsm_8c_a4f787a77625847fa0c25788e35ea4fff}\index{test\_fsm.c@{test\_fsm.c}!RUN\_FSM\_TEST@{RUN\_FSM\_TEST}}
+\index{RUN\_FSM\_TEST@{RUN\_FSM\_TEST}!test\_fsm.c@{test\_fsm.c}}
+\doxysubsubsection{\texorpdfstring{RUN\_FSM\_TEST}{RUN\_FSM\_TEST}}
+{\footnotesize\ttfamily \label{test__fsm_8c_a4f787a77625847fa0c25788e35ea4fff} 
+\+\#define RUN\+\_\+\+FSM\+\_\+\+TEST(\begin{DoxyParamCaption}\item[{}]{t}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{do}\ \{\ fsmFixtureReset();\ RUN\_TEST(t);\ \}\ \textcolor{keywordflow}{while}\ (0)}
+
+\end{DoxyCode}
+\Hypertarget{test__fsm_8c_a004772299be46aad2daf1626db058230}\index{test\_fsm.c@{test\_fsm.c}!ST\_A@{ST\_A}}
+\index{ST\_A@{ST\_A}!test\_fsm.c@{test\_fsm.c}}
+\doxysubsubsection{\texorpdfstring{ST\_A}{ST\_A}}
+{\footnotesize\ttfamily \label{test__fsm_8c_a004772299be46aad2daf1626db058230} 
+\+\#define ST\+\_\+A~((uint8\+\_\+t)\textquotesingle{}A\textquotesingle{})}
+
+\Hypertarget{test__fsm_8c_afb33db927f77e4d6ca90d88964d461de}\index{test\_fsm.c@{test\_fsm.c}!ST\_B@{ST\_B}}
+\index{ST\_B@{ST\_B}!test\_fsm.c@{test\_fsm.c}}
+\doxysubsubsection{\texorpdfstring{ST\_B}{ST\_B}}
+{\footnotesize\ttfamily \label{test__fsm_8c_afb33db927f77e4d6ca90d88964d461de} 
+\+\#define ST\+\_\+B~((uint8\+\_\+t)\textquotesingle{}B\textquotesingle{})}
+
+\Hypertarget{test__fsm_8c_a07c5dd6a63f85102afff94734b066db6}\index{test\_fsm.c@{test\_fsm.c}!ST\_INIT@{ST\_INIT}}
+\index{ST\_INIT@{ST\_INIT}!test\_fsm.c@{test\_fsm.c}}
+\doxysubsubsection{\texorpdfstring{ST\_INIT}{ST\_INIT}}
+{\footnotesize\ttfamily \label{test__fsm_8c_a07c5dd6a63f85102afff94734b066db6} 
+\+\#define ST\+\_\+\+INIT~((uint8\+\_\+t)\textquotesingle{}I\textquotesingle{})}
+
+
+
+\label{test__fsm_8c_doc-enum-members}
+\Hypertarget{test__fsm_8c_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{test__fsm_8c_a30c046e8e84567edd2dd3823bd03c4c7}\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily \label{test__fsm_8c_a30c046e8e84567edd2dd3823bd03c4c7} 
+anonymous enum}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GO\_B\_SIG@{GO\_B\_SIG}!test\_fsm.c@{test\_fsm.c}}
+\index{test\_fsm.c@{test\_fsm.c}!GO\_B\_SIG@{GO\_B\_SIG}}
+}\Hypertarget{test__fsm_8c_a30c046e8e84567edd2dd3823bd03c4c7ac088b3432d3986b27bb723f5e812b860}\label{test__fsm_8c_a30c046e8e84567edd2dd3823bd03c4c7ac088b3432d3986b27bb723f5e812b860} 
+GO\+\_\+\+B\+\_\+\+SIG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GO\_A\_SIG@{GO\_A\_SIG}!test\_fsm.c@{test\_fsm.c}}
+\index{test\_fsm.c@{test\_fsm.c}!GO\_A\_SIG@{GO\_A\_SIG}}
+}\Hypertarget{test__fsm_8c_a30c046e8e84567edd2dd3823bd03c4c7abaf337487b9cf22a97f114cf9d97e7cb}\label{test__fsm_8c_a30c046e8e84567edd2dd3823bd03c4c7abaf337487b9cf22a97f114cf9d97e7cb} 
+GO\+\_\+\+A\+\_\+\+SIG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SELF\_SIG@{SELF\_SIG}!test\_fsm.c@{test\_fsm.c}}
+\index{test\_fsm.c@{test\_fsm.c}!SELF\_SIG@{SELF\_SIG}}
+}\Hypertarget{test__fsm_8c_a30c046e8e84567edd2dd3823bd03c4c7a0b2b394972d24901562d8cc416731fa8}\label{test__fsm_8c_a30c046e8e84567edd2dd3823bd03c4c7a0b2b394972d24901562d8cc416731fa8} 
+SELF\+\_\+\+SIG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HANDLED\_SIG@{HANDLED\_SIG}!test\_fsm.c@{test\_fsm.c}}
+\index{test\_fsm.c@{test\_fsm.c}!HANDLED\_SIG@{HANDLED\_SIG}}
+}\Hypertarget{test__fsm_8c_a30c046e8e84567edd2dd3823bd03c4c7a1f2da72c7f1d17f16994d484b0988482}\label{test__fsm_8c_a30c046e8e84567edd2dd3823bd03c4c7a1f2da72c7f1d17f16994d484b0988482} 
+HANDLED\+\_\+\+SIG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IGNORED\_SIG@{IGNORED\_SIG}!test\_fsm.c@{test\_fsm.c}}
+\index{test\_fsm.c@{test\_fsm.c}!IGNORED\_SIG@{IGNORED\_SIG}}
+}\Hypertarget{test__fsm_8c_a30c046e8e84567edd2dd3823bd03c4c7a88d7faebd8c9a1d3f5f6d973b774a57c}\label{test__fsm_8c_a30c046e8e84567edd2dd3823bd03c4c7a88d7faebd8c9a1d3f5f6d973b774a57c} 
+IGNORED\+\_\+\+SIG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STOP\_SIG@{STOP\_SIG}!test\_fsm.c@{test\_fsm.c}}
+\index{test\_fsm.c@{test\_fsm.c}!STOP\_SIG@{STOP\_SIG}}
+}\Hypertarget{test__fsm_8c_a30c046e8e84567edd2dd3823bd03c4c7a0c1cab2be17e2d37e5299ed03b313850}\label{test__fsm_8c_a30c046e8e84567edd2dd3823bd03c4c7a0c1cab2be17e2d37e5299ed03b313850} 
+STOP\+\_\+\+SIG&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{test__fsm_8c_doc-func-members}
+\Hypertarget{test__fsm_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{test__fsm_8c_aee90e52b7ee918df942a1a11ef4e9a65}\index{test\_fsm.c@{test\_fsm.c}!run\_fsm\_tests@{run\_fsm\_tests}}
+\index{run\_fsm\_tests@{run\_fsm\_tests}!test\_fsm.c@{test\_fsm.c}}
+\doxysubsubsection{\texorpdfstring{run\_fsm\_tests()}{run\_fsm\_tests()}}
+{\footnotesize\ttfamily \label{test__fsm_8c_aee90e52b7ee918df942a1a11ef4e9a65} 
+void run\+\_\+fsm\+\_\+tests (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+

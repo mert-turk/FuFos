@@ -1,0 +1,136 @@
+\doxysection{app/\+include/\+amr.h File Reference}
+\hypertarget{amr_8h}{}\label{amr_8h}\index{app/include/amr.h@{app/include/amr.h}}
+{\ttfamily \+\#include "{}fsm.\+h"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_a_m_r}{AMR}}
+\begin{DoxyCompactList}\small\item\em \doxylink{struct_a_m_r}{AMR} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct AMR \doxymbox{\hyperlink{amr_8h_a71717a77347ac9f746e5f827604c6e10}{AMR}}
+\begin{DoxyCompactList}\small\item\em \doxylink{struct_a_m_r}{AMR} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \doxymbox{\hyperlink{amr_8h_a0eb2e88b65833f7718a7ea1574844a7f}{Event\+Signals}} \{ \newline
+\doxymbox{\hyperlink{amr_8h_a0eb2e88b65833f7718a7ea1574844a7fad15c914573cda59acbaefb3e1e54ec0b}{CAN\+\_\+\+TX\+\_\+\+SIG}} = USER\+\_\+\+SIG
+, \doxymbox{\hyperlink{amr_8h_a0eb2e88b65833f7718a7ea1574844a7fab96ad0ae1a6b65e239eb6307ba1080ae}{CAN\+\_\+\+RX\+\_\+\+SIG}}
+, \doxymbox{\hyperlink{amr_8h_a0eb2e88b65833f7718a7ea1574844a7fac8f1fe034ce3fe512681eb5b28eace8d}{CAN\+\_\+\+DONE\+\_\+\+SIG}}
+, \doxymbox{\hyperlink{amr_8h_a0eb2e88b65833f7718a7ea1574844a7fa733389553a684444494802d497cc5dcd}{UART\+\_\+\+FRAME\+\_\+\+DONE\+\_\+\+SIG}}
+, \newline
+\doxymbox{\hyperlink{amr_8h_a0eb2e88b65833f7718a7ea1574844a7fa56d0d78634ed43985b6f86d323fb5a05}{UART\+\_\+\+CRC\+\_\+\+CHECK\+\_\+\+SIG}}
+, \doxymbox{\hyperlink{amr_8h_a0eb2e88b65833f7718a7ea1574844a7fad8623b311e9bcc33cac92de4a98a4778}{UART\+\_\+\+TX\+\_\+\+SIG}}
+, \doxymbox{\hyperlink{amr_8h_a0eb2e88b65833f7718a7ea1574844a7fa23e7c77f72ee6354f2030cf11a664d00}{UART\+\_\+\+RX\+\_\+\+SIG}}
+, \doxymbox{\hyperlink{amr_8h_a0eb2e88b65833f7718a7ea1574844a7faa7b5bbe47e7cb3a2728476c8c0d616d1}{MAX\+\_\+\+SIG}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{amr_8h_af2e2ef625a7801e5f5f05c32520c23b5}{AMR\+\_\+ctor}} (\doxymbox{\hyperlink{struct_a_m_r}{AMR}} \texorpdfstring{$\ast$}{*}const me)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{struct_a_m_r}{AMR}} \doxymbox{\hyperlink{amr_8h_a897ff4e2cd280e8d773f660acfe7ab55}{amr}}
+\end{DoxyCompactItemize}
+
+
+\label{amr_8h_doc-typedef-members}
+\Hypertarget{amr_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{amr_8h_a71717a77347ac9f746e5f827604c6e10}\index{amr.h@{amr.h}!AMR@{AMR}}
+\index{AMR@{AMR}!amr.h@{amr.h}}
+\doxysubsubsection{\texorpdfstring{AMR}{AMR}}
+{\footnotesize\ttfamily \label{amr_8h_a71717a77347ac9f746e5f827604c6e10} 
+typedef struct AMR AMR}
+
+
+
+\doxylink{struct_a_m_r}{AMR} object. 
+
+
+
+\label{amr_8h_doc-enum-members}
+\Hypertarget{amr_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{amr_8h_a0eb2e88b65833f7718a7ea1574844a7f}\index{amr.h@{amr.h}!EventSignals@{EventSignals}}
+\index{EventSignals@{EventSignals}!amr.h@{amr.h}}
+\doxysubsubsection{\texorpdfstring{EventSignals}{EventSignals}}
+{\footnotesize\ttfamily \label{amr_8h_a0eb2e88b65833f7718a7ea1574844a7f} 
+enum \doxymbox{\hyperlink{amr_8h_a0eb2e88b65833f7718a7ea1574844a7f}{Event\+Signals}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAN\_TX\_SIG@{CAN\_TX\_SIG}!amr.h@{amr.h}}
+\index{amr.h@{amr.h}!CAN\_TX\_SIG@{CAN\_TX\_SIG}}
+}\Hypertarget{amr_8h_a0eb2e88b65833f7718a7ea1574844a7fad15c914573cda59acbaefb3e1e54ec0b}\label{amr_8h_a0eb2e88b65833f7718a7ea1574844a7fad15c914573cda59acbaefb3e1e54ec0b} 
+CAN\+\_\+\+TX\+\_\+\+SIG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAN\_RX\_SIG@{CAN\_RX\_SIG}!amr.h@{amr.h}}
+\index{amr.h@{amr.h}!CAN\_RX\_SIG@{CAN\_RX\_SIG}}
+}\Hypertarget{amr_8h_a0eb2e88b65833f7718a7ea1574844a7fab96ad0ae1a6b65e239eb6307ba1080ae}\label{amr_8h_a0eb2e88b65833f7718a7ea1574844a7fab96ad0ae1a6b65e239eb6307ba1080ae} 
+CAN\+\_\+\+RX\+\_\+\+SIG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAN\_DONE\_SIG@{CAN\_DONE\_SIG}!amr.h@{amr.h}}
+\index{amr.h@{amr.h}!CAN\_DONE\_SIG@{CAN\_DONE\_SIG}}
+}\Hypertarget{amr_8h_a0eb2e88b65833f7718a7ea1574844a7fac8f1fe034ce3fe512681eb5b28eace8d}\label{amr_8h_a0eb2e88b65833f7718a7ea1574844a7fac8f1fe034ce3fe512681eb5b28eace8d} 
+CAN\+\_\+\+DONE\+\_\+\+SIG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART\_FRAME\_DONE\_SIG@{UART\_FRAME\_DONE\_SIG}!amr.h@{amr.h}}
+\index{amr.h@{amr.h}!UART\_FRAME\_DONE\_SIG@{UART\_FRAME\_DONE\_SIG}}
+}\Hypertarget{amr_8h_a0eb2e88b65833f7718a7ea1574844a7fa733389553a684444494802d497cc5dcd}\label{amr_8h_a0eb2e88b65833f7718a7ea1574844a7fa733389553a684444494802d497cc5dcd} 
+UART\+\_\+\+FRAME\+\_\+\+DONE\+\_\+\+SIG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART\_CRC\_CHECK\_SIG@{UART\_CRC\_CHECK\_SIG}!amr.h@{amr.h}}
+\index{amr.h@{amr.h}!UART\_CRC\_CHECK\_SIG@{UART\_CRC\_CHECK\_SIG}}
+}\Hypertarget{amr_8h_a0eb2e88b65833f7718a7ea1574844a7fa56d0d78634ed43985b6f86d323fb5a05}\label{amr_8h_a0eb2e88b65833f7718a7ea1574844a7fa56d0d78634ed43985b6f86d323fb5a05} 
+UART\+\_\+\+CRC\+\_\+\+CHECK\+\_\+\+SIG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART\_TX\_SIG@{UART\_TX\_SIG}!amr.h@{amr.h}}
+\index{amr.h@{amr.h}!UART\_TX\_SIG@{UART\_TX\_SIG}}
+}\Hypertarget{amr_8h_a0eb2e88b65833f7718a7ea1574844a7fad8623b311e9bcc33cac92de4a98a4778}\label{amr_8h_a0eb2e88b65833f7718a7ea1574844a7fad8623b311e9bcc33cac92de4a98a4778} 
+UART\+\_\+\+TX\+\_\+\+SIG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART\_RX\_SIG@{UART\_RX\_SIG}!amr.h@{amr.h}}
+\index{amr.h@{amr.h}!UART\_RX\_SIG@{UART\_RX\_SIG}}
+}\Hypertarget{amr_8h_a0eb2e88b65833f7718a7ea1574844a7fa23e7c77f72ee6354f2030cf11a664d00}\label{amr_8h_a0eb2e88b65833f7718a7ea1574844a7fa23e7c77f72ee6354f2030cf11a664d00} 
+UART\+\_\+\+RX\+\_\+\+SIG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MAX\_SIG@{MAX\_SIG}!amr.h@{amr.h}}
+\index{amr.h@{amr.h}!MAX\_SIG@{MAX\_SIG}}
+}\Hypertarget{amr_8h_a0eb2e88b65833f7718a7ea1574844a7faa7b5bbe47e7cb3a2728476c8c0d616d1}\label{amr_8h_a0eb2e88b65833f7718a7ea1574844a7faa7b5bbe47e7cb3a2728476c8c0d616d1} 
+MAX\+\_\+\+SIG&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{amr_8h_doc-func-members}
+\Hypertarget{amr_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{amr_8h_af2e2ef625a7801e5f5f05c32520c23b5}\index{amr.h@{amr.h}!AMR\_ctor@{AMR\_ctor}}
+\index{AMR\_ctor@{AMR\_ctor}!amr.h@{amr.h}}
+\doxysubsubsection{\texorpdfstring{AMR\_ctor()}{AMR\_ctor()}}
+{\footnotesize\ttfamily \label{amr_8h_af2e2ef625a7801e5f5f05c32520c23b5} 
+void AMR\+\_\+ctor (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_a_m_r}{AMR}} \texorpdfstring{$\ast$}{*}const}]{me}{}\end{DoxyParamCaption})}
+
+
+
+\label{amr_8h_doc-var-members}
+\Hypertarget{amr_8h_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{amr_8h_a897ff4e2cd280e8d773f660acfe7ab55}\index{amr.h@{amr.h}!amr@{amr}}
+\index{amr@{amr}!amr.h@{amr.h}}
+\doxysubsubsection{\texorpdfstring{amr}{amr}}
+{\footnotesize\ttfamily \label{amr_8h_a897ff4e2cd280e8d773f660acfe7ab55} 
+\doxymbox{\hyperlink{struct_a_m_r}{AMR}} amr\hspace{0.3cm}{\ttfamily [extern]}}
+

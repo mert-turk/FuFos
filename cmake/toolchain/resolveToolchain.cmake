@@ -1,0 +1,28 @@
+# ============================================================
+# Resolving the toolchain chosed by userConfig.cmake
+# ============================================================
+if(ENABLE_TESTS)
+    set(ARCH TEST)
+    set(CMAKE_TOOLCHAIN_FILE "${CMAKE_SOURCE_DIR}/cmake/toolchain/host/toolchain.cmake")
+else()
+    if(NOT TOOLCHAIN_FAMILY)
+        message(FATAL_ERROR "userConfig.cmake: TOOLCHAIN_FAMILY not set")
+    endif()
+    if(TOOLCHAIN_FAMILY STREQUAL "arm-gcc")
+        set(ARCH ARM)
+        set(CMAKE_TOOLCHAIN_FILE "${CMAKE_SOURCE_DIR}/cmake/toolchain/arm/toolchain.cmake")
+        # set(CMAKE_FLASH_PATH    "${CMAKE_MODULE_PATH}/flash/arm/flash.cmake")
+        message(STATUS "Selected toolchain is: ${CMAKE_TOOLCHAIN_FILE}")
+    elseif(TOOLCHAIN_FAMILY STREQUAL "avr-gcc")
+        set(ARCH AVR)
+        set(CMAKE_TOOLCHAIN_FILE "${CMAKE_SOURCE_DIR}/cmake/toolchain/avr/toolchain.cmake")
+        # set(CMAKE_FLASH_PATH    "${CMAKE_MODULE_PATH}/flash/avr/flash.cmake")
+        message(STATUS "Selected toolchain is: ${CMAKE_TOOLCHAIN_FILE}")
+    else()
+        message(FATAL_ERROR "Unsupported TOOLCHAIN_FAMILY '${TOOLCHAIN_FAMILY}'")
+    endif()
+
+    # if(NOT EXISTS "${CMAKE_SOURCE_DIR}/bsp/${BSP_MCU}")
+    #     message(FATAL_ERROR "BSP '${BSP_MCU}' not found in bsp/")
+    # endif()
+endif()

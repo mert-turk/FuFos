@@ -1,0 +1,72 @@
+\doxysection{app/\+include/\+fsm.h File Reference}
+\hypertarget{fsm_8h}{}\label{fsm_8h}\index{app/include/fsm.h@{app/include/fsm.h}}
+{\ttfamily \+\#include $<$stdint.\+h$>$}\newline
+{\ttfamily \+\#include $<$stdbool.\+h$>$}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_event}{Event}}
+\begin{DoxyCompactList}\small\item\em \doxylink{struct_event}{Event} queue. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{struct_evt_queue}{Evt\+Queue}}
+\begin{DoxyCompactList}\small\item\em \doxylink{struct_event}{Event} Queue data structures. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{struct_fsm}{Fsm}}
+\begin{DoxyCompactList}\small\item\em \doxylink{struct_fsm}{Fsm} data structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga228783873815e02b069a286af4512aba}{EVENT\+\_\+\+SIZE}}~10U
+\item 
+\+\#define \doxymbox{\hyperlink{group___a_p_p___f_s_m_gaeb41a85758334f69021b20bdce30cbbb}{TRAN}}(target\+\_\+)
+\begin{DoxyCompactList}\small\item\em Macro like function for transition between states. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint16\+\_\+t \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga42fe4fb8bd53d4cad6b514f6cbe2fc67}{Signal}}
+\begin{DoxyCompactList}\small\item\em Type alias for signals. \end{DoxyCompactList}\item 
+typedef struct Fsm \doxymbox{\hyperlink{group___a_p_p___f_s_m_gaa84d6df096283e2cbabd28be531b1612}{Fsm}}
+\begin{DoxyCompactList}\small\item\em Forward declaration of \doxylink{struct_fsm}{Fsm} data obejct. \end{DoxyCompactList}\item 
+typedef \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga5d74787dedbc4e11c1ab15bf487e61f8}{State}}(\texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga080a87a8d9406212c4c40c878c5bf36b}{State\+Handler}}) (\doxymbox{\hyperlink{struct_fsm}{Fsm}} \texorpdfstring{$\ast$}{*}const me, \doxymbox{\hyperlink{struct_event}{Event}} const \texorpdfstring{$\ast$}{*}const e)
+\begin{DoxyCompactList}\small\item\em Function pointer to state handling. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga7788fc98fede5c788c8be9b38d927383}{Reserved\+Signals}} \{ \doxymbox{\hyperlink{group___a_p_p___f_s_m_gga7788fc98fede5c788c8be9b38d927383a4f82e141013e3778b1d7ee23f4f8ecd7}{INIT\+\_\+\+SIG}}
+, \doxymbox{\hyperlink{group___a_p_p___f_s_m_gga7788fc98fede5c788c8be9b38d927383a75cfb5b8d7194753541e4154023de198}{ENTRY\+\_\+\+SIG}}
+, \doxymbox{\hyperlink{group___a_p_p___f_s_m_gga7788fc98fede5c788c8be9b38d927383adae8493fc1597afcd17591c6d533dee4}{EXIT\+\_\+\+SIG}}
+, \doxymbox{\hyperlink{group___a_p_p___f_s_m_gga7788fc98fede5c788c8be9b38d927383a70782b2c29104fef5c3bbc1aafdc7d4a}{USER\+\_\+\+SIG}}
+ \}
+\begin{DoxyCompactList}\small\item\em Rserved signals for FSM dispatcher. \end{DoxyCompactList}\item 
+enum \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga5d74787dedbc4e11c1ab15bf487e61f8}{State}} \{ \doxymbox{\hyperlink{group___a_p_p___f_s_m_gga5d74787dedbc4e11c1ab15bf487e61f8a641ab6614ac422ef93de5e08082cfbda}{TRAN\+\_\+\+STATUS}}
+, \doxymbox{\hyperlink{group___a_p_p___f_s_m_gga5d74787dedbc4e11c1ab15bf487e61f8a6e0aa255541f160f23e577798ff3acb7}{HANDLED\+\_\+\+STATUS}}
+, \doxymbox{\hyperlink{group___a_p_p___f_s_m_gga5d74787dedbc4e11c1ab15bf487e61f8a8a528e0e282462bc34a29a8cbf727060}{IGNORED\+\_\+\+STATUS}}
+, \doxymbox{\hyperlink{group___a_p_p___f_s_m_gga5d74787dedbc4e11c1ab15bf487e61f8aaf0be153cd3ef0fa9cc8de5cc69ce234}{INIT\+\_\+\+STATUS}}
+ \}
+\begin{DoxyCompactList}\small\item\em Status of the state handling. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga8354ce10690e8c946adee86febc3a183}{Fsm\+\_\+ctor}} (\doxymbox{\hyperlink{struct_fsm}{Fsm}} \texorpdfstring{$\ast$}{*}const me, \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga080a87a8d9406212c4c40c878c5bf36b}{State\+Handler}} initial)
+\begin{DoxyCompactList}\small\item\em \doxylink{struct_fsm}{Fsm} constructer function. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga503af3ee1874946bd85f9018737775ff}{Fsm\+\_\+init}} (\doxymbox{\hyperlink{struct_fsm}{Fsm}} \texorpdfstring{$\ast$}{*}const me, \doxymbox{\hyperlink{struct_event}{Event}} const \texorpdfstring{$\ast$}{*}const e)
+\begin{DoxyCompactList}\small\item\em \doxylink{struct_fsm}{Fsm} data structure. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___a_p_p___f_s_m_gacb40f808c7fe3dbe8d7b6819d6f77a94}{Fsm\+\_\+dispatch}} (\doxymbox{\hyperlink{struct_fsm}{Fsm}} \texorpdfstring{$\ast$}{*}const me, \doxymbox{\hyperlink{struct_event}{Event}} const \texorpdfstring{$\ast$}{*}const e)
+\begin{DoxyCompactList}\small\item\em \doxylink{struct_fsm}{Fsm} data structure. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___a_p_p___f_s_m_gaf4ee4c4fec7b7b9804a291749f15a7c2}{Evt\+Queue\+\_\+\+Create}} (\doxymbox{\hyperlink{struct_evt_queue}{Evt\+Queue}} \texorpdfstring{$\ast$}{*}const me)
+\begin{DoxyCompactList}\small\item\em Evemt queue create. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___a_p_p___f_s_m_gac4cfb74e148e8c7cab5b9cecf0c00a38}{Evt\+Queue\+\_\+post}} (\doxymbox{\hyperlink{struct_evt_queue}{Evt\+Queue}} \texorpdfstring{$\ast$}{*}const me, \doxymbox{\hyperlink{struct_event}{Event}} const \texorpdfstring{$\ast$}{*}const e)
+\begin{DoxyCompactList}\small\item\em Evemt queue create. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{struct_event}{Event}} \doxymbox{\hyperlink{group___a_p_p___f_s_m_gab09810cb7c1ae4f5da98e823b0c909b1}{Evt\+Queue\+\_\+pend}} (\doxymbox{\hyperlink{struct_evt_queue}{Evt\+Queue}} \texorpdfstring{$\ast$}{*}const me)
+\begin{DoxyCompactList}\small\item\em Evemt queue create. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{group___a_p_p___f_s_m_gaf3eedf44731a744661d5adc08beb7b9f}{Evt\+Queue\+\_\+is\+Pending}} (\doxymbox{\hyperlink{struct_evt_queue}{Evt\+Queue}} const \texorpdfstring{$\ast$}{*}const me)
+\begin{DoxyCompactList}\small\item\em Evemt queue create. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga9ada9a864987666e9e3332d539cc0de7}{event\+Loop}} (void \texorpdfstring{$\ast$}{*}pdata)
+\begin{DoxyCompactList}\small\item\em Evemt queue create. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Mert Ali Turk (\href{mailto:mert.tuerk@zarm-technik.de}{\texttt{mert.\+tuerk@zarm-\/technik.\+de}}) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2026-\/xx-\/xx 
+\end{DoxyDate}

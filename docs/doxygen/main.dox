@@ -1,0 +1,28 @@
+/**
+ * @mainpage Overview
+ * \image html Logo_zarmtechnik.png width=400px
+ * @section intro_sec Executive Summary
+ * Welcome to the software documentation for the **Fault-Tolerant Firmware Update Bootloader**.
+ * This project provides a robust, fail-safe mechanism for updating embedded firmware in high-reliability 
+ * environments.
+ *
+ * The documentation is structured to provide full bi-directional traceability across all phases 
+ * of development—from high-level software requirements down to low-level implementation and verification.
+ *
+ * @section doc_structure Documentation Structure
+ *
+ * | Document / Section | Scope & Purpose | Link |
+ * | :--- | :--- | :--- |
+ * | **Software Requirements (SRS)** | High-level system behavior, constraints, and compliance targets. | [Read SRS Document](./../srs.md) |
+ * | **Software Design Description (SDD)** | Architectural patterns, state machine transitions, and memory layout. | [Read SDD Document](./../sdd.md) |
+ * | **API & Module References** | Functional groups, hardware drivers, and public interfaces. | @ref modules |
+ * | **Data Structures** | Memory map, payload headers, and flash descriptors. | @ref annotated |
+ * | **File Directory** | Project file organization and header dependencies. | @ref files |
+ *
+ * ---
+ *
+ *
+ * @note
+ * **Traceability Notice:** All public API functions are tagged with corresponding SRS requirement IDs 
+ * (e.g., `@satisfies{REQ_SW_FWU_001}`). Refer to the @ref srs_traceability matrix for compliance details.
+ */

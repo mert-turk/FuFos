@@ -1,0 +1,71 @@
+\doxysection{bsp/\+megas64m1/\+source/\+bsp.c File Reference}
+\hypertarget{bsp_2megas64m1_2source_2bsp_8c}{}\label{bsp_2megas64m1_2source_2bsp_8c}\index{bsp/megas64m1/source/bsp.c@{bsp/megas64m1/source/bsp.c}}
+{\ttfamily \+\#include "{}bsp.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{bsp_2megas64m1_2source_2bsp_8c_a6c4642687bc2b3a58009bf2dfa34972b}{BSP\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Receive firmware data. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{bsp_2megas64m1_2source_2bsp_8c_aa08ed1afcc3a2a56a702a5871c334c73}{BSP\+\_\+start}} (void)
+\begin{DoxyCompactList}\small\item\em Receive firmware data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{bsp_2megas64m1_2source_2bsp_8c_doc-func-members}
+\Hypertarget{bsp_2megas64m1_2source_2bsp_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{bsp_2megas64m1_2source_2bsp_8c_a6c4642687bc2b3a58009bf2dfa34972b}\index{bsp.c@{bsp.c}!BSP\_init@{BSP\_init}}
+\index{BSP\_init@{BSP\_init}!bsp.c@{bsp.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_init()}{BSP\_init()}}
+{\footnotesize\ttfamily \label{bsp_2megas64m1_2source_2bsp_8c_a6c4642687bc2b3a58009bf2dfa34972b} 
+void BSP\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Receive firmware data. 
+
+Receives firmware packets from the communication interface.
+
+Implements REQ-\/\+FUNC-\/0004
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em buffer} & Pointer to firmware data. \\
+\hline
+\doxymbox{\texttt{in}}  & {\em length} & Number of bytes.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em true} & Reception successful. \\
+\hline
+{\em false} & Reception failed. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{bsp_2megas64m1_2source_2bsp_8c_aa08ed1afcc3a2a56a702a5871c334c73}\index{bsp.c@{bsp.c}!BSP\_start@{BSP\_start}}
+\index{BSP\_start@{BSP\_start}!bsp.c@{bsp.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_start()}{BSP\_start()}}
+{\footnotesize\ttfamily \label{bsp_2megas64m1_2source_2bsp_8c_aa08ed1afcc3a2a56a702a5871c334c73} 
+void BSP\+\_\+start (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Receive firmware data. 
+
+Receives firmware packets from the communication interface.
+
+Implements REQ-\/\+FUNC-\/0004
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em buffer} & Pointer to firmware data. \\
+\hline
+\doxymbox{\texttt{in}}  & {\em length} & Number of bytes.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em true} & Reception successful. \\
+\hline
+{\em false} & Reception failed. \\
+\hline
+\end{DoxyRetVals}

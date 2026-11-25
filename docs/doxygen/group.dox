@@ -1,0 +1,19 @@
+/**
+ * @defgroup BSP Board Support Package
+ * @brief Hardware abstraction and peripheral drivers.
+ */
+
+/**
+ * @defgroup APP Application
+ * @brief Application-level functionality.
+ */
+
+/**
+ * @defgroup CONFIG Configuration
+ * @brief Hardware and application configuration.
+ */
+
+/**
+ * @defgroup TEST Testing
+ * @brief Unit, integration and hardware tests.
+ */

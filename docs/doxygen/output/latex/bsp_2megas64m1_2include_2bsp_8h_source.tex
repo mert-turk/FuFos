@@ -1,0 +1,55 @@
+\doxysection{bsp.\+h}
+\hypertarget{bsp_2megas64m1_2include_2bsp_8h_source}{}\label{bsp_2megas64m1_2include_2bsp_8h_source}\index{bsp/megas64m1/include/bsp.h@{bsp/megas64m1/include/bsp.h}}
+\doxymbox{\hyperlink{bsp_2megas64m1_2include_2bsp_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ BSP\_H}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ BSP\_H}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <avr/io.h>}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <avr/boot.h>}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <avr/interrupt.h>}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ <avr/pgmspace.h>}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{bsp__can_8h}{bsp\_can.h}}"{}}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{bsp__timer_8h}{bsp\_timer.h}}"{}}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{bsp__gpio_8h}{bsp\_gpio.h}}"{}}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{amr_8h}{amr.h}}"{}}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ MAXIMUM\_DATA\_BYTES\ \ \ \ \ \ \ \ \ \ \ \ \ 8U}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ BSP\_disableInterrupts()\ \ \ \ \ \ \ \ \ cli();}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ BSP\_enableInterrupts(sreg\_)\ \ \ \ \ \ SREG\ =\ sreg\_;}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00064\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{bsp_2megas64m1_2include_2bsp_8h_a6c4642687bc2b3a58009bf2dfa34972b}{BSP\_init}}(\ \textcolor{keywordtype}{void}\ );}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00081\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{bsp_2megas64m1_2include_2bsp_8h_aa08ed1afcc3a2a56a702a5871c334c73}{BSP\_start}}(\ \textcolor{keywordtype}{void}\ );}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ BSP\_H}}
+\DoxyCodeLine{00093\ }
+
+\end{DoxyCode}

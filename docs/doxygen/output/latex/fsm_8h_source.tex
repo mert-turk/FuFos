@@ -1,0 +1,91 @@
+\doxysection{fsm.\+h}
+\hypertarget{fsm_8h_source}{}\label{fsm_8h_source}\index{app/include/fsm.h@{app/include/fsm.h}}
+\doxymbox{\hyperlink{fsm_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/***************************************************************************/}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ FSM\_H}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ FSM\_H}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ EVENT\_SIZE\ 10U}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{typedef}\ uint16\_t\ \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga42fe4fb8bd53d4cad6b514f6cbe2fc67}{Signal}};\ \textcolor{comment}{/*\ event\ signal\ */}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{enum}\ \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga7788fc98fede5c788c8be9b38d927383}{ReservedSignals}}}
+\DoxyCodeLine{00035\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \doxymbox{\hyperlink{group___a_p_p___f_s_m_gga7788fc98fede5c788c8be9b38d927383a4f82e141013e3778b1d7ee23f4f8ecd7}{INIT\_SIG}},\ \ \textcolor{comment}{/*\ dispatched\ to\ AO\ before\ entering\ event-\/loop\ */}}
+\DoxyCodeLine{00037\ \ \ \ \ \doxymbox{\hyperlink{group___a_p_p___f_s_m_gga7788fc98fede5c788c8be9b38d927383a75cfb5b8d7194753541e4154023de198}{ENTRY\_SIG}},\ \textcolor{comment}{/*\ for\ triggering\ the\ entry\ action\ in\ a\ state\ */}}
+\DoxyCodeLine{00038\ \ \ \ \ \doxymbox{\hyperlink{group___a_p_p___f_s_m_gga7788fc98fede5c788c8be9b38d927383adae8493fc1597afcd17591c6d533dee4}{EXIT\_SIG}},\ \ \textcolor{comment}{/*\ for\ triggering\ the\ exit\ action\ from\ a\ state\ */}}
+\DoxyCodeLine{00039\ \ \ \ \ \doxymbox{\hyperlink{group___a_p_p___f_s_m_gga7788fc98fede5c788c8be9b38d927383a70782b2c29104fef5c3bbc1aafdc7d4a}{USER\_SIG}}\ \ \ \textcolor{comment}{/*\ first\ signal\ available\ to\ the\ users\ */}}
+\DoxyCodeLine{00040\ \};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00048\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga42fe4fb8bd53d4cad6b514f6cbe2fc67}{Signal}}\ \doxymbox{\hyperlink{struct_event_a22d485281bc2699211fea7627abd19a6}{sig}};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \}\ \doxymbox{\hyperlink{struct_event}{Event}};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00060\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{struct_evt_queue_a16bb962aa2316045af4e6dcc792a6d36}{head}};}
+\DoxyCodeLine{00062\ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{struct_evt_queue_a0ab55c27bb457505f45a0117fdda35ee}{tail}};}
+\DoxyCodeLine{00063\ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{struct_evt_queue_a77ff94209bf3f4596dc396e6f3d64ba3}{count}};}
+\DoxyCodeLine{00064\ \ \ \ \ \doxymbox{\hyperlink{struct_event}{Event}}\ \ \ \doxymbox{\hyperlink{struct_evt_queue_a309b32533dfcb18626ccf27eb81f55a0}{evt}}[\ \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga228783873815e02b069a286af4512aba}{EVENT\_SIZE}}\ ];}
+\DoxyCodeLine{00065\ \}\ \doxymbox{\hyperlink{struct_evt_queue}{EvtQueue}};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00071\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00072\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \doxymbox{\hyperlink{group___a_p_p___f_s_m_gga5d74787dedbc4e11c1ab15bf487e61f8a641ab6614ac422ef93de5e08082cfbda}{TRAN\_STATUS}},}
+\DoxyCodeLine{00074\ \ \ \ \ \doxymbox{\hyperlink{group___a_p_p___f_s_m_gga5d74787dedbc4e11c1ab15bf487e61f8a6e0aa255541f160f23e577798ff3acb7}{HANDLED\_STATUS}},}
+\DoxyCodeLine{00075\ \ \ \ \ \doxymbox{\hyperlink{group___a_p_p___f_s_m_gga5d74787dedbc4e11c1ab15bf487e61f8a8a528e0e282462bc34a29a8cbf727060}{IGNORED\_STATUS}},}
+\DoxyCodeLine{00076\ \ \ \ \ \doxymbox{\hyperlink{group___a_p_p___f_s_m_gga5d74787dedbc4e11c1ab15bf487e61f8aaf0be153cd3ef0fa9cc8de5cc69ce234}{INIT\_STATUS}}}
+\DoxyCodeLine{00077\ \}\ \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga5d74787dedbc4e11c1ab15bf487e61f8}{State}};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00084\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_fsm}{Fsm}}\ \doxymbox{\hyperlink{struct_fsm}{Fsm}};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00091\ \textcolor{keyword}{typedef}\ \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga5d74787dedbc4e11c1ab15bf487e61f8}{State}}\ (\ *\doxymbox{\hyperlink{group___a_p_p___f_s_m_ga080a87a8d9406212c4c40c878c5bf36b}{StateHandler}}\ )(\ \doxymbox{\hyperlink{struct_fsm}{Fsm}}\ *\ \textcolor{keyword}{const}\ me,\ \doxymbox{\hyperlink{struct_event}{Event}}\ \textcolor{keyword}{const}\ *\ \textcolor{keyword}{const}\ e\ );}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#define\ TRAN(\ target\_\ )\ (\ (\ (Fsm\ *)me\ )-\/>state\ =\ (StateHandler)(\ target\_\ ),\ TRAN\_STATUS\ )}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00104\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_fsm}{Fsm}}}
+\DoxyCodeLine{00105\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga080a87a8d9406212c4c40c878c5bf36b}{StateHandler}}\ \doxymbox{\hyperlink{struct_fsm_a7cd8de6e09e2377ac9b3c85b2cc71d57}{state}};}
+\DoxyCodeLine{00107\ \ \ \ \ \doxymbox{\hyperlink{struct_evt_queue}{EvtQueue}}\ \ \ \ \ \doxymbox{\hyperlink{struct_fsm_ac4382ec2f2ccd63a0ce671d676d31497}{queue}};}
+\DoxyCodeLine{00108\ \};}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00117\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga8354ce10690e8c946adee86febc3a183}{Fsm\_ctor}}(\ \doxymbox{\hyperlink{struct_fsm}{Fsm}}\ *\ \textcolor{keyword}{const}\ me,\ \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga080a87a8d9406212c4c40c878c5bf36b}{StateHandler}}\ initial\ );}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00124\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga503af3ee1874946bd85f9018737775ff}{Fsm\_init}}(\ \doxymbox{\hyperlink{struct_fsm}{Fsm}}\ *\ \textcolor{keyword}{const}\ me,\ \doxymbox{\hyperlink{struct_event}{Event}}\ \textcolor{keyword}{const}\ *\ \textcolor{keyword}{const}\ e\ );}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00131\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___a_p_p___f_s_m_gacb40f808c7fe3dbe8d7b6819d6f77a94}{Fsm\_dispatch}}(\ \doxymbox{\hyperlink{struct_fsm}{Fsm}}\ *\ \textcolor{keyword}{const}\ me,\ \doxymbox{\hyperlink{struct_event}{Event}}\ \textcolor{keyword}{const}\ *\ \textcolor{keyword}{const}\ e\ );}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00137\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___a_p_p___f_s_m_gaf4ee4c4fec7b7b9804a291749f15a7c2}{EvtQueue\_Create}}(\ \doxymbox{\hyperlink{struct_evt_queue}{EvtQueue}}\ *\ \textcolor{keyword}{const}\ me\ );}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00143\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___a_p_p___f_s_m_gac4cfb74e148e8c7cab5b9cecf0c00a38}{EvtQueue\_post}}(\ \doxymbox{\hyperlink{struct_evt_queue}{EvtQueue}}\ *\ \textcolor{keyword}{const}\ me,\ \doxymbox{\hyperlink{struct_event}{Event}}\ \textcolor{keyword}{const}\ *\ \textcolor{keyword}{const}\ e\ );}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00150\ \doxymbox{\hyperlink{struct_event}{Event}}\ \doxymbox{\hyperlink{group___a_p_p___f_s_m_gab09810cb7c1ae4f5da98e823b0c909b1}{EvtQueue\_pend}}(\ \doxymbox{\hyperlink{struct_evt_queue}{EvtQueue}}\ *\ \textcolor{keyword}{const}\ me\ );}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{group___a_p_p___f_s_m_gaf3eedf44731a744661d5adc08beb7b9f}{EvtQueue\_isPending}}(\ \doxymbox{\hyperlink{struct_evt_queue}{EvtQueue}}\ \textcolor{keyword}{const}\ *\ \textcolor{keyword}{const}\ me\ );}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00164\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga9ada9a864987666e9e3332d539cc0de7}{eventLoop}}(\ \textcolor{keywordtype}{void}\ *\ pdata\ );}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//FSM\_H}}
+
+\end{DoxyCode}

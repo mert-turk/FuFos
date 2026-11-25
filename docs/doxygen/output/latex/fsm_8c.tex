@@ -1,0 +1,54 @@
+\doxysection{app/\+source/\+fsm.c File Reference}
+\hypertarget{fsm_8c}{}\label{fsm_8c}\index{app/source/fsm.c@{app/source/fsm.c}}
+{\ttfamily \+\#include "{}fsm.\+h"{}}\newline
+{\ttfamily \+\#include "{}bsp.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga8354ce10690e8c946adee86febc3a183}{Fsm\+\_\+ctor}} (\doxymbox{\hyperlink{struct_fsm}{Fsm}} \texorpdfstring{$\ast$}{*}const me, \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga080a87a8d9406212c4c40c878c5bf36b}{State\+Handler}} initial)
+\begin{DoxyCompactList}\small\item\em \doxylink{struct_fsm}{Fsm} constructer function. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga503af3ee1874946bd85f9018737775ff}{Fsm\+\_\+init}} (\doxymbox{\hyperlink{struct_fsm}{Fsm}} \texorpdfstring{$\ast$}{*}const me, \doxymbox{\hyperlink{struct_event}{Event}} const \texorpdfstring{$\ast$}{*}const e)
+\begin{DoxyCompactList}\small\item\em \doxylink{struct_fsm}{Fsm} data structure. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___a_p_p___f_s_m_gacb40f808c7fe3dbe8d7b6819d6f77a94}{Fsm\+\_\+dispatch}} (\doxymbox{\hyperlink{struct_fsm}{Fsm}} \texorpdfstring{$\ast$}{*}const me, \doxymbox{\hyperlink{struct_event}{Event}} const \texorpdfstring{$\ast$}{*}const e)
+\begin{DoxyCompactList}\small\item\em \doxylink{struct_fsm}{Fsm} data structure. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___a_p_p___f_s_m_gaf4ee4c4fec7b7b9804a291749f15a7c2}{Evt\+Queue\+\_\+\+Create}} (\doxymbox{\hyperlink{struct_evt_queue}{Evt\+Queue}} \texorpdfstring{$\ast$}{*}const me)
+\begin{DoxyCompactList}\small\item\em Evemt queue create. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___a_p_p___f_s_m_gac4cfb74e148e8c7cab5b9cecf0c00a38}{Evt\+Queue\+\_\+post}} (\doxymbox{\hyperlink{struct_evt_queue}{Evt\+Queue}} \texorpdfstring{$\ast$}{*}const me, \doxymbox{\hyperlink{struct_event}{Event}} const \texorpdfstring{$\ast$}{*}const e)
+\begin{DoxyCompactList}\small\item\em Evemt queue create. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{struct_event}{Event}} \doxymbox{\hyperlink{group___a_p_p___f_s_m_gab09810cb7c1ae4f5da98e823b0c909b1}{Evt\+Queue\+\_\+pend}} (\doxymbox{\hyperlink{struct_evt_queue}{Evt\+Queue}} \texorpdfstring{$\ast$}{*}const me)
+\begin{DoxyCompactList}\small\item\em Evemt queue create. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{group___a_p_p___f_s_m_gaf3eedf44731a744661d5adc08beb7b9f}{Evt\+Queue\+\_\+is\+Pending}} (\doxymbox{\hyperlink{struct_evt_queue}{Evt\+Queue}} const \texorpdfstring{$\ast$}{*}const me)
+\begin{DoxyCompactList}\small\item\em Evemt queue create. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___a_p_p___f_s_m_ga9ada9a864987666e9e3332d539cc0de7}{event\+Loop}} (void \texorpdfstring{$\ast$}{*}pdata)
+\begin{DoxyCompactList}\small\item\em Evemt queue create. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Mert Ali Turk (\href{mailto:mert.tuerk@zarm-technik.de}{\texttt{mert.\+tuerk@zarm-\/technik.\+de}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2026-\/xx-\/xx
+\end{DoxyDate}
+\doxylink{struct_a_m_r}{AMR} general implementation
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2026 Zarm Technik AG. All rights reserved.
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Author}
+Mert Ali Turk (\href{mailto:mert.tuerk@zarm-technik.de}{\texttt{mert.\+tuerk@zarm-\/technik.\+de}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2026-\/xx-\/xx
+\end{DoxyDate}
+Finite state machine implementation file.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2026 Zarm Technik AG. All rights reserved. 
+\end{DoxyCopyright}

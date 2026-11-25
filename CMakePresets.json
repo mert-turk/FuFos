@@ -1,0 +1,59 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "debug",
+      "displayName": "Hardware Debug Build",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build/debug",
+      "cacheVariables": {
+        "ENABLE_DEBUG_INFO": "ON",
+        "ENABLE_OPTIMIZATION": "OFF",
+        "ENABLE_TESTS": "OFF"
+      }
+    },
+    {
+      "name": "release",
+      "displayName": "Hardware Release Build",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build/release",
+      "cacheVariables": {
+        "ENABLE_DEBUG_INFO": "OFF",
+        "ENABLE_OPTIMIZATION": "ON",
+        "ENABLE_TESTS": "OFF"
+      }
+    },
+    {
+      "name": "test",
+      "displayName": "Host PC Unit Tests",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build/test",
+      "cacheVariables": {
+        "ENABLE_DEBUG_INFO": "ON",
+        "ENABLE_OPTIMIZATION": "OFF",
+        "ENABLE_TESTS": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "debug",
+      "configurePreset": "debug"
+    },
+    {
+      "name": "release",
+      "configurePreset": "release"
+    },
+    {
+      "name": "test",
+      "configurePreset": "test"
+    }
+  ],
+  "testPresets": 
+  [
+      {
+        "name": "run-tests",
+        "configurePreset": "test"
+      }
+    ]
+}
